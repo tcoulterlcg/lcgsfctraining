@@ -586,6 +586,17 @@ h2.hd{line-height:1.04}
   .mockbody .mrow b{flex:0 0 110px}
 }
 
+
+.stepbox{display:grid;gap:11px;max-width:760px;margin-top:20px}
+.step{display:flex;gap:15px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:16px 19px;box-shadow:0 1px 2px rgba(7,21,39,.04)}
+.step .sn{flex:0 0 25px;width:25px;height:25px;border-radius:50%;background:var(--brand);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;font-family:var(--mono)}
+.step b{display:block;font-size:15.5px;color:var(--ink);font-weight:700;margin-bottom:3px;letter-spacing:-.01em}
+.step span{font-size:14px;color:var(--ink-3);line-height:1.55}
+.lnk{font-family:var(--mono);font-size:13px;color:var(--brand);background:#EEF3FB;
+  padding:2px 7px;border-radius:5px;border:1px solid #D8E2F2}
+
 </style>
 </head>
 <body>
@@ -885,13 +896,150 @@ Those are marked <em class="i">reference</em> and excluded from the drill &mdash
 {m:'Hot Keys',wide:1,practice:'File Explorer'},
 {m:'Hot Keys',wide:1,practice:'Windows'},
 
+/* ---------- TECHNOLOGY MODULE ---------- */
+{m:'Technology',dark:1,h:`
+<div class="eyebrow"><span class="pip"></span> Module 4</div>
+<h1 class="big">Your <em>Toolkit</em></h1>
+<p class="lede">What's on your machine, what you have to ask for, and how to actually use the two tools
+that will change how you work.</p>`},
+
+{m:'Technology',h:`
+<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Machine setup</div>
+<h2 class="hd">Does your computer come with Dropbox?</h2>
+<p><strong>No.</strong> A new LCG machine arrives with the Microsoft stack &mdash; Teams, Outlook, OneNote,
+Excel &mdash; already provisioned. Dropbox and ViewPoint are separate requests you have to make.</p>
+<p>Put in the request on day one. It is the single most common reason a new hire spends their first week
+unable to open a client file.</p>
+<div class="cards c2" style="margin-top:22px">
+<div class="card"><span class="tag">Comes with the machine</span><h4>Already there</h4>
+<p>Teams &middot; Outlook &middot; OneNote &middot; Excel &middot; Claude</p></div>
+<div class="card"><span class="tag">Request separately</span><h4>Ask IT on day one</h4>
+<p>Dropbox &middot; ViewPoint &middot; Salesforce &middot; Expense platform</p></div>
+</div>
+<div class="todo" style="margin-top:20px"><div class="badge">&#9998; Confirm with IT</div>
+<p style="margin:0">Drawn from your own new-computer checklist. Confirm the exact request process
+&mdash; ticket, email, who approves &mdash; and I'll put the real steps here.</p></div>`},
+
+{m:'Technology',h:`
+<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<h2 class="hd">Get Claude installed</h2>
+<p>Claude is where a lot of the leverage in this practice now lives &mdash; drafting, model review,
+research, summarising a 90-minute lender call into four bullets. Install the desktop app rather than
+living in a browser tab.</p>
+<div class="stepbox">
+<div class="step"><span class="sn">1</span><div><b>Download the desktop app</b>
+<span>Go to <span class="lnk">claude.ai/download</span> &mdash; Windows and Mac both supported.</span></div></div>
+<div class="step"><span class="sn">2</span><div><b>Sign in with your LCG account</b>
+<span>Use your <span class="lnk">@lcgadvisors.com</span> address so your work sits under the firm's
+workspace, not a personal one.</span></div></div>
+<div class="step"><span class="sn">3</span><div><b>Add the Excel add-in separately</b>
+<span>Search "Claude for Microsoft 365" in Microsoft AppSource, then Get it now. More on that in two screens.</span></div></div>
+</div>`},
+
+{m:'Technology',h:`
+<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<h2 class="hd">Settings &rarr; turn on your connectors</h2>
+<p>Out of the box Claude only knows what you paste into it. <strong>Connectors</strong> let it read your
+actual work &mdash; and this is the step most people skip.</p>
+<div class="cards c3" style="margin:20px 0 20px">
+<div class="card"><span class="tag">Connect</span><h4>Microsoft 365</h4><p>SharePoint, OneDrive, Outlook, Teams. Search email, pull a file, check a calendar.</p></div>
+<div class="card"><span class="tag">Connect</span><h4>Dropbox</h4><p>Client folders and working files.</p></div>
+<div class="card"><span class="tag">Connect</span><h4>Granola</h4><p>Meeting notes and transcripts, searchable after the fact.</p></div>
+</div>
+<div class="callout"><div class="ic">&#9881;</div><div><h4>Where to find it</h4>
+<p>Settings &rarr; Connectors. Turn on everything you have access to &mdash; then confirm they're enabled
+for the specific chat you're in, since a connector can be authenticated but toggled off per conversation.</p></div></div>
+<div class="callout" style="margin-top:14px"><div class="ic">!</div><div><h4>One that doesn't exist</h4>
+<p>There is no OneNote connector. If you need Claude to read a OneNote page, use <b>Send Page</b> in the
+OneNote ribbon to email it to yourself &mdash; Claude can read it through Outlook.</p></div></div>`},
+
+{m:'Technology',h:`
+<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<h2 class="hd">Projects</h2>
+<p>A <strong>Project</strong> is a container that remembers. Instead of re-explaining the engagement every
+time you open a chat, you set the context once and every conversation inside that project inherits it.</p>
+<div class="cards c2" style="margin:20px 0">
+<div class="card"><span class="tag">What goes in</span><h4>Files and instructions</h4>
+<p>Upload the credit agreement, the model, the last field exam. Add custom instructions describing the
+client, the lender, and what you're being asked to do.</p></div>
+<div class="card"><span class="tag">Why it matters</span><h4>It persists and it's shared</h4>
+<p>Project docs survive across sessions and are visible to your team. Work done in a project is picked up
+by whoever opens it next &mdash; including you, three weeks later.</p></div>
+</div>
+<div class="callout gold"><div class="ic">&#10003;</div><div><h4>Practical rule</h4>
+<p>One project per engagement. Name it after the client. Put the standing facts in the instructions so you
+never type them twice.</p></div></div>`},
+
+{m:'Technology',h:`
+<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<h2 class="hd">Cowork</h2>
+<p>Cowork is the mode where Claude stops answering and starts <strong>doing</strong>. It gets a working
+computer &mdash; a filesystem, a shell, the ability to run code &mdash; plus access to your connectors.</p>
+<p>The practical difference: a normal chat tells you how to clean up twelve messy CSVs. Cowork opens them,
+cleans them, and hands you the finished files.</p>
+<div class="cards c3" style="margin-top:20px">
+<div class="card"><span class="tag">Good for</span><h4>Batch file work</h4><p>Reformatting, merging, converting, cleaning a folder of client schedules.</p></div>
+<div class="card"><span class="tag">Good for</span><h4>Building deliverables</h4><p>Spreadsheets, decks, memos, PDFs &mdash; produced as real files you can open.</p></div>
+<div class="card"><span class="tag">Good for</span><h4>Multi-step research</h4><p>Pull from SharePoint and the web, reconcile, and write it up in one pass.</p></div>
+</div>
+<div class="callout" style="margin-top:20px"><div class="ic">&#9873;</div><div><h4>This site was built in Cowork</h4>
+<p>Written, tested, and deployed from a Cowork session &mdash; which is a fair illustration of the range.</p></div></div>`},
+
+{m:'Technology',wide:1,h:`
+<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<h2 class="hd">In Excel vs. in the app</h2>
+<p style="margin-bottom:22px">Both are useful. They behave differently in one way that matters a great deal:
+<strong>where your conversation history goes.</strong></p>
+<div class="cols">
+<div class="col do" style="border-color:var(--line)"><span class="lbl" style="color:var(--brand)">Claude in the app</span><ul>
+<li>History is <b>saved to your account</b> and syncs across devices.</li>
+<li>Conversations live inside Projects, so context carries forward.</li>
+<li>Full connector access &mdash; SharePoint, Dropbox, Granola, the web.</li>
+<li>Can produce files: xlsx, docx, pptx, pdf.</li>
+<li>You have to describe the workbook, or upload it.</li>
+</ul></div>
+<div class="col do" style="border-color:var(--line)"><span class="lbl" style="color:var(--warn)">Claude in Excel</span><ul>
+<li>History is stored <b>locally in your browser only</b> &mdash; not on your account, not synced, gone if you clear it.</li>
+<li>Sees the open workbook live, with cell-level citations you can click.</li>
+<li>Edits values while keeping formula relationships intact.</li>
+<li>Traces precedents, finds the root of a #REF!, populates templates.</li>
+<li>No macros or VBA, and no data tables.</li>
+</ul></div>
+</div>
+<div class="callout gold" style="margin-top:22px"><div class="ic">&#10003;</div><div><h4>How to choose</h4>
+<p>Use <b>Excel</b> for anything about the cells in front of you &mdash; debugging, flexing assumptions,
+building out a model. Use the <b>app</b> when you want the thinking preserved: analysis you'll return to,
+work that belongs to an engagement, anything a colleague may need to pick up. If a conversation matters,
+have it in the app.</p></div></div>
+<p style="margin-top:18px;font-size:14px;color:var(--ink-3)">Requires a Pro, Max, Team or Enterprise plan.
+Runs on Excel for the web, Excel on Windows (M365), and Excel on Mac &mdash; not on the 2016/2019 perpetual
+licences, iPad, or Android.</p>`},
+
+{m:'Technology',h:`
+<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Granola</div>
+<h2 class="hd">Granola</h2>
+<p>Granola is an AI notetaker for meetings. The thing that makes it different from every other one:
+<strong>no bot joins your call.</strong> Nothing appears in the participant list, nobody is asked to consent
+to a recording robot, and the client never sees it.</p>
+<p>It listens to your computer's audio in the background. You type whatever sparse notes you'd normally take
+&mdash; half sentences, a number, a name &mdash; and afterwards it merges those with what was actually said
+and gives you a clean, structured set of notes.</p>
+<div class="cards c3" style="margin-top:20px">
+<div class="card"><span class="tag">Why we use it</span><h4>Discreet</h4><p>Critical in distressed work. A recording bot changes what people say in a lender call.</p></div>
+<div class="card"><span class="tag">Why we use it</span><h4>You stay present</h4><p>You are not transcribing. You are in the conversation, jotting anchors.</p></div>
+<div class="card"><span class="tag">Why we use it</span><h4>Searchable later</h4><p>Connect Granola in Claude and you can ask what was agreed three weeks ago.</p></div>
+</div>
+<div class="callout" style="margin-top:20px"><div class="ic">&#9878;</div><div><h4>Know the rule before you use it</h4>
+<p>Recording consent law varies by state and by client agreement. Confirm LCG's policy on when Granola may
+be used on a client call before you turn it on.</p></div></div>`},
+
 /* 18 SALESFORCE */
 {m:'Admin',dark:1,h:`
-<div class="eyebrow"><span class="pip"></span> Module 4</div>
+<div class="eyebrow"><span class="pip"></span> Module 5</div>
 <h1 class="big">Logging Time<br>in <em>Salesforce</em></h1>`},
 
 {m:'Admin',h:`
-<div class="eyebrow"><span class="pip"></span> Module 4</div>
+<div class="eyebrow"><span class="pip"></span> Module 5</div>
 <h2 class="hd">Logging Time in Salesforce</h2>
 <div class="todo"><div class="badge">&#9998; TBD &mdash; needs your walkthrough</div>
 <p>Marked TBD in your notes. Send me any of the following and I'll build the screens:</p>
@@ -905,11 +1053,11 @@ Those are marked <em class="i">reference</em> and excluded from the drill &mdash
 
 /* 20 EXPENSES */
 {m:'Admin',dark:1,h:`
-<div class="eyebrow"><span class="pip"></span> Module 5</div>
+<div class="eyebrow"><span class="pip"></span> Module 6</div>
 <h1 class="big">Submitting<br><em>Expenses</em></h1>`},
 
 {m:'Admin',h:`
-<div class="eyebrow"><span class="pip"></span> Module 5</div>
+<div class="eyebrow"><span class="pip"></span> Module 6</div>
 <h2 class="hd">Submitting Expenses</h2>
 <div class="todo"><div class="badge">&#9998; TBD &mdash; needs your walkthrough</div>
 <p>Also TBD. I saw Expensify in your bookmarks &mdash; confirm the system and I'll build it out:</p>
@@ -951,8 +1099,9 @@ var MODMETA=[
  {n:'01',t:'Welcome to LCG',d:'What this tool is, and what HR covers instead',min:2},
  {n:'02',t:"Scott Webb's School of Tricks",d:'Four habits, the reasoning behind each, and a knowledge check',min:12},
  {n:'03',t:'Hot Keys',d:'108 shortcuts across five apps, with live practice drills',min:25},
- {n:'04',t:'Logging Time in Salesforce',d:'Coming soon',min:0},
- {n:'05',t:'Submitting Expenses',d:'Coming soon',min:0}
+ {n:'04',t:'Technology',d:'Your machine, Claude, and Granola',min:10},
+ {n:'05',t:'Logging Time in Salesforce',d:'Coming soon',min:0},
+ {n:'06',t:'Submitting Expenses',d:'Coming soon',min:0}
 ];
 function tocHTML(){
   var tot=MODMETA.reduce(function(a,m){return a+m.min},0);
