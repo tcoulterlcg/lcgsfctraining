@@ -499,6 +499,93 @@ h2.hd{line-height:1.04}
 .cover-logo .l{font-family:var(--sans);font-weight:800;font-size:34px;letter-spacing:-.025em;color:#fff;line-height:1}
 .cover-logo .a{font-size:10px;letter-spacing:.36em;color:var(--gold-lt);font-weight:700;margin-top:6px}
 
+
+/* ================= TOC ================= */
+.toc{display:grid;gap:10px;max-width:820px}
+.tocrow{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid var(--line);
+  border-radius:12px;padding:16px 20px;box-shadow:0 1px 2px rgba(7,21,39,.04)}
+.tocrow.soon{background:linear-gradient(180deg,#FAFBFE,#F3F6FC);border-style:dashed;border-color:#C6D0E4}
+.tocrow .tn{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--brand);flex:0 0 26px}
+.tocrow .tt{flex:1;display:flex;flex-direction:column;gap:3px;min-width:0}
+.tocrow .tt b{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.tocrow .tt span{font-size:13.5px;color:var(--ink-3)}
+.tocrow .tm{font-family:var(--mono);font-size:12px;color:var(--ink-3);flex:0 0 auto}
+.tocrow.soon .tm{color:var(--warn)}
+
+/* ================= DRILL ================= */
+.drill{max-width:880px}
+.dprog{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.dbar{flex:1;height:5px;background:#E4E8F0;border-radius:3px;overflow:hidden}
+.dbar i{display:block;height:100%;background:linear-gradient(90deg,var(--brand),#7C99D0);
+  transition:width .4s cubic-bezier(.4,0,.2,1)}
+.dcount{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.dcard{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:28px 30px;
+  box-shadow:0 2px 6px rgba(7,21,39,.05);transition:border-color .2s,background .2s;text-align:center}
+.dcard.bad{border-color:var(--bad);background:#FDF6F4}
+.dcard.good{border-color:var(--ok);background:#F3FAF6}
+.dcard.done{border-color:var(--ok);background:#F3FAF6}
+.dcard.shown{border-color:var(--warn);background:#FAFBFE}
+.dbig{font-size:40px;color:var(--ok);line-height:1;margin-bottom:10px}
+.dlbl{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:700;margin-bottom:12px}
+.dtask{font-family:var(--sans);font-weight:800;font-size:clamp(19px,2.3vw,26px);letter-spacing:-.025em;
+  line-height:1.2;color:var(--ink);margin-bottom:20px}
+.dslot{min-height:46px;display:flex;align-items:center;justify-content:center;gap:6px;
+  border:1.5px dashed #C6D0E4;border-radius:11px;padding:10px 16px;background:#FAFBFE;margin-bottom:18px}
+.dcard.bad .dslot{border-color:#E8BEB4;background:#FDF2EF}
+.dcard.good .dslot{border-color:#B9DDCA;background:#EFF8F3;border-style:solid}
+.dhint{font-family:var(--mono);font-size:12.5px;color:#9AA5B4}
+.dslot .x{color:var(--bad);font-weight:700;margin-left:6px}
+.dslot .ok{color:var(--ok);font-weight:700;margin-left:6px}
+.dans{display:flex;align-items:center;justify-content:center;gap:6px;min-height:46px;
+  border:1.5px solid var(--warn);border-radius:11px;padding:10px 16px;background:#FAFBFE;margin-bottom:18px}
+.dactions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+.dbtn{font-family:var(--sans);font-size:13.5px;font-weight:650;padding:9px 18px;border-radius:100px;
+  border:1.5px solid var(--brand);background:var(--brand);color:#fff;cursor:pointer;transition:all .16s}
+.dbtn:hover{background:#3D63A9;border-color:#3D63A9}
+.dbtn.ghost{background:#fff;border-color:var(--line);color:var(--ink-2)}
+.dbtn.ghost:hover{border-color:var(--brand);color:var(--brand);background:#fff}
+
+/* Excel grid */
+.xgrid{margin-top:18px;overflow-x:auto;border:1px solid var(--line);border-radius:11px;background:#fff}
+.xgrid table{border-collapse:collapse;width:100%;font-family:var(--mono);font-size:12.5px}
+.xgrid th,.xgrid td{border:1px solid #E4E8F0;padding:7px 11px;text-align:right;color:var(--ink-2);white-space:nowrap}
+.xgrid th.h,.xgrid td.h{background:#F1F4F9;color:var(--ink-3);font-weight:600;text-align:center}
+.xgrid tr:first-child th{text-align:center}
+.xgrid td:nth-child(2),.xgrid th:nth-child(2){text-align:left}
+.xgrid td.tot{font-weight:700;color:var(--ink);border-top:2px solid var(--brand)}
+.xgrid td.sel{outline:2px solid var(--brand);outline-offset:-2px;background:#EEF3FB}
+
+/* mock windows */
+.mockwin{margin-top:18px;border:1px solid var(--line);border-radius:11px;overflow:hidden;background:#fff}
+.mockbar{display:flex;align-items:center;gap:6px;padding:9px 13px;background:#F1F4F9;border-bottom:1px solid var(--line)}
+.mockbar .dot{width:9px;height:9px;border-radius:50%}
+.mockbar .dot.r{background:#E4736A}.mockbar .dot.y{background:#E8B84B}.mockbar .dot.g{background:#5FB37E}
+.mockbar .mt{margin-left:8px;font-size:12px;color:var(--ink-3);font-family:var(--mono)}
+.mockbody .mrow{display:flex;align-items:center;gap:14px;padding:11px 15px;border-bottom:1px solid #F0F2F6;font-size:13.5px}
+.mockbody .mrow:last-child{border-bottom:0}
+.mockbody .mrow.sel{background:#EEF3FB;box-shadow:inset 3px 0 0 var(--brand)}
+.mockbody .mrow b{flex:0 0 165px;color:var(--ink);font-weight:650}
+.mockbody .mrow span{flex:1;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mockbody .mrow i{font-style:normal;font-family:var(--mono);font-size:11.5px;color:#9AA5B4}
+.tile{display:inline-flex;align-items:center;justify-content:center;width:78px;height:56px;border-radius:9px;
+  background:#F1F4F9;border:1px solid var(--line);font-size:12px;color:var(--ink-3);font-weight:600}
+
+/* reference list */
+.refwrap{margin-top:26px;max-width:1140px}
+.reflbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);font-weight:700;margin-bottom:12px}
+.refgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:9px}
+.hk.seq .keys kbd{background:linear-gradient(180deg,#FAFBFE,#EEF2F9)}
+.seqtag{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);font-weight:700;
+  margin-left:6px;white-space:nowrap}
+
+@media(max-width:900px){
+  .tocrow{gap:12px;padding:14px 15px}
+  .tocrow .tt b{font-size:15px}
+  .refgrid{grid-template-columns:1fr}
+  .mockbody .mrow b{flex:0 0 110px}
+}
+
 </style>
 </head>
 <body>
@@ -533,181 +620,313 @@ h2.hd{line-height:1.04}
 
 <script>
 /* ========================= HOTKEY DATA ========================= */
-var HK=[
-{k:['Ctrl','Arrow'],c:'Navigation',d:'Jump to the <b>edge of the data region</b> &mdash; fastest way to find the true bottom of a tie-out schedule',s:1},
-{k:['Ctrl','Home'],c:'Navigation',d:'Return to <b>cell A1</b> of the active sheet'},
-{k:['Ctrl','End'],c:'Navigation',d:'Go to the <b>last used cell</b> &mdash; reveals phantom ranges bloating a client file',s:1},
-{k:['Ctrl','PgDn'],c:'Navigation',d:'Move to the <b>next worksheet</b> (PgUp for previous)',s:1},
-{k:['Ctrl','G'],c:'Navigation',d:'<b>Go To</b> &mdash; type a range or named reference and jump to it'},
-{k:['F5','Alt','S'],c:'Navigation',d:'<b>Go To Special</b> &mdash; isolate constants, formulas, blanks. Essential for auditing a file you did not build',s:1},
-{k:['Ctrl','Tab'],c:'Navigation',d:'Cycle between <b>open workbooks</b>'},
-{k:['Ctrl','F'],c:'Navigation',d:'<b>Find</b> &mdash; with Options open, search formulas across the workbook'},
-{k:['Ctrl','Shift','Arrow'],c:'Selection',d:'<b>Select to the edge</b> of the contiguous data block',s:1},
-{k:['Ctrl','Shift','End'],c:'Selection',d:'Select from cursor to the <b>last used cell</b>'},
-{k:['Ctrl','Space'],c:'Selection',d:'Select the <b>entire column</b>'},
-{k:['Shift','Space'],c:'Selection',d:'Select the <b>entire row</b>'},
-{k:['Ctrl','A'],c:'Selection',d:'Select the <b>current region</b>; press again for the whole sheet'},
-{k:['Ctrl','Shift','O'],c:'Selection',d:'Select <b>all cells with comments/notes</b>'},
-{k:['F2'],c:'Editing',d:'<b>Edit the active cell</b> in place and highlight its precedents',s:1},
-{k:['Ctrl','D'],c:'Editing',d:'<b>Fill down</b> from the cell above',s:1},
-{k:['Ctrl','R'],c:'Editing',d:'<b>Fill right</b> from the cell to the left',s:1},
-{k:['Ctrl','Shift','+'],c:'Editing',d:'<b>Insert</b> cells, rows, or columns'},
-{k:['Ctrl','-'],c:'Editing',d:'<b>Delete</b> cells, rows, or columns'},
-{k:['Alt','E','S','V'],c:'Editing',d:'<b>Paste Special &rarr; Values</b>. The most-used sequence in modeling',s:1},
-{k:['Alt','E','S','T'],c:'Editing',d:'<b>Paste Special &rarr; Formats</b>'},
-{k:['Alt','E','S','E'],c:'Editing',d:'<b>Paste Special &rarr; Transpose</b> &mdash; flip a row into a column'},
-{k:['Alt','Enter'],c:'Editing',d:'<b>Line break within a cell</b> &mdash; for readable assumption notes'},
-{k:['Ctrl','Enter'],c:'Editing',d:'Fill the <b>entire selection</b> with what you just typed'},
-{k:['Shift','F11'],c:'Editing',d:'Insert a <b>new worksheet</b>'},
-{k:['Ctrl','1'],c:'Formatting',d:'<b>Format Cells</b> dialog &mdash; gateway to custom number formats',s:1},
-{k:['Ctrl','Shift','$'],c:'Formatting',d:'Apply <b>currency format</b>'},
-{k:['Ctrl','Shift','%'],c:'Formatting',d:'Apply <b>percentage format</b>'},
-{k:['Ctrl','Shift','!'],c:'Formatting',d:'Apply <b>comma format</b>, two decimals'},
-{k:['Ctrl','Shift','~'],c:'Formatting',d:'Return to <b>general format</b>'},
-{k:['Alt','H','O','I'],c:'Formatting',d:'<b>AutoFit column width</b> to contents',s:1},
-{k:['Alt','H','O','A'],c:'Formatting',d:'<b>AutoFit row height</b>'},
-{k:['Ctrl','9'],c:'Formatting',d:'<b>Hide rows</b> (Ctrl+0 hides columns)'},
-{k:['Alt','H','B','A'],c:'Formatting',d:'Apply <b>all borders</b> to the selection'},
-{k:['Alt','='],c:'Formulas',d:'<b>AutoSum</b> the range above or to the left',s:1},
-{k:['F4'],c:'Formulas',d:'Toggle <b>absolute / relative reference</b> ($A$1 &rarr; A$1 &rarr; $A1 &rarr; A1). Repeats last action outside edit mode',s:1},
-{k:['F9'],c:'Formulas',d:'In edit mode: <b>evaluate the selected portion</b> of a formula. Fastest way to debug a nested IF',s:1},
-{k:['Ctrl','`'],c:'Formulas',d:'<b>Show all formulas</b> instead of results &mdash; first thing to do in an unfamiliar model',s:1},
-{k:['F3'],c:'Formulas',d:'<b>Paste Name</b> &mdash; list every named range in the workbook'},
-{k:['Shift','F3'],c:'Formulas',d:'Open the <b>Insert Function</b> dialog'},
-{k:['Ctrl','['],c:'Auditing',d:'<b>Jump to precedents</b> &mdash; follow a number back to its source, across sheets',s:1},
-{k:['Ctrl',']'],c:'Auditing',d:'<b>Jump to dependents</b> &mdash; see what breaks if you change this cell',s:1},
-{k:['Alt','M','P'],c:'Auditing',d:'<b>Trace Precedents</b> arrows'},
-{k:['Alt','M','D'],c:'Auditing',d:'<b>Trace Dependents</b> arrows'},
-{k:['Alt','M','V'],c:'Auditing',d:'<b>Evaluate Formula</b> &mdash; step through a calculation one operation at a time'},
-{k:['Ctrl','Shift','U'],c:'Auditing',d:'<b>Expand the formula bar</b> to read a long formula'},
-{k:['Ctrl','Shift','L'],c:'Data',d:'Toggle <b>AutoFilter</b> on the current range',s:1},
-{k:['Alt','A','S','S'],c:'Data',d:'Open the <b>Sort</b> dialog'},
-{k:['Alt','A','G','G'],c:'Data',d:'<b>Group</b> rows or columns (Alt+A+U+U to ungroup)'},
-{k:['Alt','N','V'],c:'Data',d:'Insert a <b>PivotTable</b>'},
-{k:['Ctrl','T'],c:'Data',d:'Convert a range to a <b>structured Table</b>'},
-{k:['Alt',';'],c:'Data',d:'Select <b>visible cells only</b> &mdash; copy a filtered list without hidden rows',s:1},
-{k:['Ctrl','S'],c:'Workbook',d:'<b>Save</b>. More often than feels necessary'},
-{k:['F12'],c:'Workbook',d:'<b>Save As</b> &mdash; for disciplined version control'},
-{k:['Ctrl','P'],c:'Workbook',d:'<b>Print preview</b> &mdash; check before anything goes to a client'},
-{k:['Alt','W','F','F'],c:'Workbook',d:'<b>Freeze panes</b> at the cursor',s:1},
-{k:['Alt','W','S'],c:'Workbook',d:'<b>Split</b> the window into scrollable panes'},
-{k:['Alt','W','N'],c:'Workbook',d:'<b>New window</b> on the same workbook &mdash; two sheets side by side',s:1},
-{k:['Ctrl','W'],c:'Workbook',d:'<b>Close</b> the active workbook'},
-{k:['Alt','F1'],c:'Workbook',d:'Insert a <b>chart</b> from the selected data'}
-];
+/* drill:1 = practiceable in-browser. drill:0 = OS/browser intercepts it — reference only. */
+var PK={
+'Excel':[
+{k:['F2'],c:'f2',d:'Edit the active cell in place',drill:1},
+{k:['Ctrl','D'],c:'ctrl+d',d:'Fill down from the cell above',drill:1},
+{k:['Ctrl','R'],c:'ctrl+r',d:'Fill right from the cell to the left',drill:1},
+{k:['Alt','='],c:'alt+=',d:'AutoSum the range above',drill:1},
+{k:['F4'],c:'f4',d:'Toggle absolute / relative reference ($A$1)',drill:1},
+{k:['Ctrl','1'],c:'ctrl+1',d:'Open the Format Cells dialog',drill:1},
+{k:['Ctrl','`'],c:'ctrl+`',d:'Show all formulas instead of results',drill:1},
+{k:['Ctrl',';'],c:'ctrl+;',d:"Insert today's date as a static value",drill:1},
+{k:['Ctrl','Shift','L'],c:'ctrl+shift+l',d:'Toggle AutoFilter on the range',drill:1},
+{k:['Ctrl','↓'],c:'ctrl+down',d:'Jump to the bottom edge of the data',drill:1},
+{k:['Ctrl','Shift','↓'],c:'ctrl+shift+down',d:'Select down to the edge of the data',drill:1},
+{k:['Ctrl','Home'],c:'ctrl+home',d:'Return to cell A1',drill:1},
+{k:['Ctrl','End'],c:'ctrl+end',d:'Go to the last used cell in the sheet',drill:1},
+{k:['Ctrl','PgDn'],c:'ctrl+pgdn',d:'Move to the next worksheet',drill:1},
+{k:['Alt',';'],c:'alt+;',d:'Select visible cells only (skip hidden rows)',drill:1},
+{k:['Ctrl','['],c:'ctrl+[',d:'Jump to the precedents of this formula',drill:1},
+{k:['Ctrl',']'],c:'ctrl+]',d:'Jump to the dependents of this cell',drill:1},
+{k:['Ctrl','Shift','4'],c:'ctrl+shift+4',d:'Apply currency format',drill:1},
+{k:['Ctrl','Shift','5'],c:'ctrl+shift+5',d:'Apply percentage format',drill:1},
+{k:['Ctrl','Shift','1'],c:'ctrl+shift+1',d:'Apply comma format, two decimals',drill:1},
+{k:['Shift','F11'],c:'shift+f11',d:'Insert a new worksheet',drill:1},
+{k:['Ctrl','-'],c:'ctrl+-',d:'Delete the selected cells, rows or columns',drill:1},
+{k:['F9'],c:'f9',d:'Evaluate the selected part of a formula',drill:1},
+{k:['Shift','F3'],c:'shift+f3',d:'Open the Insert Function dialog',drill:1},
+{k:['Ctrl','Space'],c:'ctrl+space',d:'Select the entire column',drill:1},
+{k:['Shift','Space'],c:'shift+space',d:'Select the entire row',drill:1},
+{k:['Ctrl','Enter'],c:'ctrl+enter',d:'Fill the whole selection with what you typed',drill:1},
+{k:['Alt','Enter'],c:'alt+enter',d:'Line break inside a single cell',drill:1},
+{k:['Ctrl','Shift','U'],c:'ctrl+shift+u',d:'Expand the formula bar',drill:1},
+{k:['Ctrl','A'],c:'ctrl+a',d:'Select the current data region',drill:1},
+{k:['Alt','E','S','V'],c:'',d:'Paste Special → Values',drill:0,seq:1},
+{k:['Alt','H','O','I'],c:'',d:'AutoFit column width',drill:0,seq:1},
+{k:['Alt','W','F','F'],c:'',d:'Freeze panes at the cursor',drill:0,seq:1},
+{k:['Alt','A','G','G'],c:'',d:'Group the selected rows or columns',drill:0,seq:1},
+{k:['Ctrl','S'],c:'',d:'Save the workbook',drill:0},
+{k:['Ctrl','N'],c:'',d:'New workbook',drill:0},
+{k:['Ctrl','W'],c:'',d:'Close the workbook',drill:0}
+],
+'Outlook':[
+{k:['Ctrl','R'],c:'ctrl+r',d:'Reply to the selected message',drill:1},
+{k:['Ctrl','Shift','R'],c:'ctrl+shift+r',d:'Reply all',drill:1},
+{k:['Ctrl','F'],c:'ctrl+f',d:'Forward the message',drill:1},
+{k:['Ctrl','Enter'],c:'ctrl+enter',d:'Send the message you are composing',drill:1},
+{k:['Ctrl','Shift','M'],c:'ctrl+shift+m',d:'New email message',drill:1},
+{k:['Ctrl','Shift','A'],c:'ctrl+shift+a',d:'New calendar appointment',drill:1},
+{k:['Ctrl','Shift','Q'],c:'ctrl+shift+q',d:'New meeting request',drill:1},
+{k:['Ctrl','Q'],c:'ctrl+q',d:'Mark the message as read',drill:1},
+{k:['Ctrl','U'],c:'ctrl+u',d:'Mark the message as unread',drill:1},
+{k:['Ctrl','Shift','G'],c:'ctrl+shift+g',d:'Flag for follow-up',drill:1},
+{k:['Ctrl','Shift','V'],c:'ctrl+shift+v',d:'Move the message to a folder',drill:1},
+{k:['Ctrl','E'],c:'ctrl+e',d:'Jump to the search box',drill:1},
+{k:['Ctrl','2'],c:'ctrl+2',d:'Switch to Calendar',drill:1},
+{k:['Ctrl','1'],c:'ctrl+1',d:'Switch to Mail',drill:1},
+{k:['Ctrl','3'],c:'ctrl+3',d:'Switch to Contacts',drill:1},
+{k:['Ctrl','4'],c:'ctrl+4',d:'Switch to Tasks',drill:1},
+{k:['Alt','S'],c:'alt+s',d:'Send (while composing)',drill:1},
+{k:['Ctrl','Shift','I'],c:'ctrl+shift+i',d:'Jump to the Inbox',drill:1},
+{k:['Ctrl','Shift','B'],c:'ctrl+shift+b',d:'Open the Address Book',drill:1},
+{k:['Ctrl','K'],c:'ctrl+k',d:'Check names / resolve recipients',drill:1},
+{k:['F9'],c:'f9',d:'Send and receive all folders',drill:1},
+{k:['Ctrl','N'],c:'',d:'New item in the current view',drill:0}
+],
+'Teams':[
+{k:['Ctrl','E'],c:'ctrl+e',d:'Jump to the search bar',drill:1},
+{k:['Ctrl','Shift','M'],c:'ctrl+shift+m',d:'Mute / unmute yourself',drill:1},
+{k:['Ctrl','Shift','O'],c:'ctrl+shift+o',d:'Turn your camera on or off',drill:1},
+{k:['Ctrl','Shift','A'],c:'ctrl+shift+a',d:'Accept an incoming call with audio',drill:1},
+{k:['Ctrl','Shift','D'],c:'ctrl+shift+d',d:'Decline an incoming call',drill:1},
+{k:['Ctrl','Shift','H'],c:'ctrl+shift+h',d:'Hang up / end the call',drill:1},
+{k:['Ctrl','Shift','K'],c:'ctrl+shift+k',d:'Raise or lower your hand',drill:1},
+{k:['Ctrl','Shift','X'],c:'ctrl+shift+x',d:'Attach a file to the message',drill:1},
+{k:['Ctrl','Shift','E'],c:'ctrl+shift+e',d:'Start screen sharing',drill:1},
+{k:['Ctrl','.'],c:'ctrl+.',d:'Show the full keyboard shortcut list',drill:1},
+{k:['Ctrl','Shift','U'],c:'ctrl+shift+u',d:'Toggle background blur',drill:1},
+{k:['Ctrl','1'],c:'ctrl+1',d:'Go to Activity',drill:1},
+{k:['Ctrl','2'],c:'ctrl+2',d:'Go to Chat',drill:1},
+{k:['Ctrl','3'],c:'ctrl+3',d:'Go to Teams',drill:1},
+{k:['Ctrl','4'],c:'ctrl+4',d:'Go to Calendar',drill:1},
+{k:['Ctrl','5'],c:'ctrl+5',d:'Go to Calls',drill:1},
+{k:['Ctrl','N'],c:'',d:'Start a new chat',drill:0}
+],
+'File Explorer':[
+{k:['F2'],c:'f2',d:'Rename the selected file',drill:1},
+{k:['Alt','↑'],c:'alt+up',d:'Go up one folder level',drill:1},
+{k:['Alt','←'],c:'alt+left',d:'Go back to the previous folder',drill:1},
+{k:['Alt','→'],c:'alt+right',d:'Go forward',drill:1},
+{k:['Alt','Enter'],c:'alt+enter',d:'Open Properties for the selected item',drill:1},
+{k:['F3'],c:'f3',d:'Jump to the search box',drill:1},
+{k:['Ctrl','Shift','1'],c:'ctrl+shift+1',d:'Switch to extra large icons view',drill:1},
+{k:['Ctrl','Shift','6'],c:'ctrl+shift+6',d:'Switch to Details view',drill:1},
+{k:['Ctrl','Shift','E'],c:'ctrl+shift+e',d:'Expand the navigation pane to the current folder',drill:1},
+{k:['Ctrl','A'],c:'ctrl+a',d:'Select every item in the folder',drill:1},
+{k:['Ctrl','Shift','A'],c:'ctrl+shift+a',d:'Invert the current selection',drill:1},
+{k:['F5'],c:'f5',d:'Refresh the folder view',drill:1},
+{k:['Shift','Delete'],c:'shift+del',d:'Delete permanently, skipping the Recycle Bin',drill:1},
+{k:['Ctrl','Shift','N'],c:'',d:'Create a new folder',drill:0},
+{k:['Ctrl','N'],c:'',d:'Open a second Explorer window',drill:0},
+{k:['Ctrl','W'],c:'',d:'Close the Explorer window',drill:0},
+{k:['Ctrl','L'],c:'',d:'Focus the address bar',drill:0}
+],
+'Windows':[
+{k:['Win','E'],c:'',d:'Open File Explorer',drill:0},
+{k:['Win','L'],c:'',d:'Lock your machine — do this every time you step away',drill:0},
+{k:['Win','D'],c:'',d:'Show the desktop',drill:0},
+{k:['Win','V'],c:'',d:'Open clipboard history — the last 25 things you copied',drill:0},
+{k:['Win','Shift','S'],c:'',d:'Screen clipping to the clipboard',drill:0},
+{k:['Win','←'],c:'',d:'Snap the window to the left half',drill:0},
+{k:['Win','→'],c:'',d:'Snap the window to the right half',drill:0},
+{k:['Win','↑'],c:'',d:'Maximise the window',drill:0},
+{k:['Win','Tab'],c:'',d:'Task view / virtual desktops',drill:0},
+{k:['Win','Ctrl','→'],c:'',d:'Move to the next virtual desktop',drill:0},
+{k:['Alt','Tab'],c:'',d:'Switch between open windows',drill:0},
+{k:['Win','.'],c:'',d:'Emoji and symbol picker',drill:0},
+{k:['Win','1'],c:'',d:'Launch the first app pinned to the taskbar',drill:0},
+{k:['Win','X'],c:'',d:'Power user menu',drill:0},
+{k:['Ctrl','Shift','Esc'],c:'',d:'Open Task Manager directly',drill:0}
+]
+};
 
-/* ========================= SLIDES ========================= */
 var S=[
 
-{m:'School of Tricks',dark:1,h:`
+/* 0 COVER */
+{m:'Welcome',dark:1,h:`
 <div class="cover-logo" id="coverLogo"></div>
-<h1 class="big">Scott Webb's<br><em>School of Tricks</em></h1>
-<p class="lede">Plus the hot keys that matter.</p>`},
+<h1 class="big">Welcome to <em>LCG</em></h1>
+<p class="lede">HR runs your onboarding. This is the other half &mdash; the tools, tips and tricks that take
+your career to the next level inside Scott Webb's SFC practice.</p>`},
 
-/* ---------- TRICK 1 ---------- */
+/* 1 TOC */
+{m:'Welcome',wide:1,toc:1},
+
+/* 2 MODULE 2 DIVIDER */
 {m:'School of Tricks',dark:1,h:`
-<div class="eyebrow"><span class="pip"></span> Trick 01</div>
-<div class="rulebox"><div class="r">The Art of Positioning</div></div>`},
+<div class="eyebrow"><span class="pip"></span> Module 2</div>
+<h1 class="big">Scott Webb's<br><em>School of Tricks</em></h1>
+<p class="lede">Four habits that look like manners and are actually risk management.</p>`},
 
+/* 3 POSITIONING */
 {m:'School of Tricks',h:`
 <div class="eyebrow"><span class="pip"></span> Trick 01</div>
-<h2 class="hd">Why</h2>
-<div class="why">
-<span class="lbl">The Why</span>
-<p>In almost every SFC engagement you are the least powerful person in the room on paper. You don't own the
-company, you don't hold the debt, and you can't fire anyone. Yet you are expected to change what those people
-decide. That only works if you have <strong>position</strong>.</p>
-<p>Positioning is the deliberate management of how each party perceives your role. The lender needs to see you
-as the person who will tell them what's actually in the borrower's numbers. Management needs to see you as the
-person who will represent their situation fairly. Those two perceptions are in tension only if you are pitching
-yourself as someone's advocate. They are compatible if you position yourself as <strong>the honest broker of
-facts</strong>.</p>
-<p>Take a position that is defensible to every party at once and you keep access to every party at once. Pick a
-side and you lose the other side's information &mdash; which is the only asset you actually have.</p>
-<p>Positioning is also <em class="i">sequence</em>. Who you tell first, what goes in writing versus what you say,
-whether a problem surfaces in the group meeting or the pre-call. Same facts, different outcome: helpful
-intelligence, or a public accusation.</p>
-</div>
-<div class="todo" style="margin-top:22px"><div class="badge">&#9998; Your edit</div>
-<p style="margin:0">Draft reasoning &mdash; replace with Scott's.</p></div>`},
+<h2 class="hd">The Art of Positioning</h2>
+<div class="todo" style="margin-top:22px">
+<div class="badge">&#9998; TBD &mdash; awaiting Scott</div>
+<h4>This one is yours to write</h4>
+<p style="margin:0">Your notes have this marked TBD, so I've left it empty rather than inventing the
+reasoning. Tell me how Scott frames positioning and I'll write the screen to match the other three.</p>
+</div>`},
 
-/* ---------- TRICK 2 ---------- */
+/* 4 SOFTENER */
 {m:'School of Tricks',dark:1,h:`
 <div class="eyebrow"><span class="pip"></span> Trick 02</div>
 <div class="rulebox"><div class="r">&ldquo;Let me give it some thought<br>and get back to you.&rdquo;</div></div>`},
 
 {m:'School of Tricks',h:`
-<div class="eyebrow"><span class="pip"></span> Trick 02</div>
-<h2 class="hd">Why</h2>
+<div class="eyebrow"><span class="pip"></span> Trick 02 &middot; Why</div>
+<h2 class="hd">Buy yourself the time</h2>
 <div class="why">
 <span class="lbl">The Why</span>
-<p>Clients do not hear your answers as opinions. They hear them as <strong>commitments</strong>. You say "that
-should be fine" in a hallway on a Tuesday, and eight weeks later it is in a board deck as your recommendation.
-You will not remember saying it. They will.</p>
-<p>The pressure to answer immediately comes from ego, not from the client. We are afraid a pause reads as
-ignorance. It does not. To a sophisticated client, an instant answer to a hard question reads as
-<em class="i">carelessness</em> &mdash; it signals you did not think the question was hard, which means you did
-not understand it. <strong>The pause signals gravity.</strong></p>
-<p>Mechanically it does four things at once: stops you committing to a position you would have to walk back,
-buys time to verify, lets you consult a colleague without doing it in front of the client, and converts an
-ambush into a scheduled conversation you control.</p>
-<p><strong>You have to actually get back to them.</strong> Put a date on it in the same breath, then honor it.
-A forgotten promise is not a mistake, it is a character assessment.</p>
+<p>A client will ask you an unexpected question you do not have the answer to. It happens in every engagement,
+usually in front of other people.</p>
+<p>Keep this line at your fingertips. It buys you time to give a <strong>thoughtful, detailed response</strong>
+instead of an off-the-cuff one &mdash; and clients remember your off-the-cuff answers as commitments long after
+you have forgotten saying them.</p>
+<p>Say it plainly, put a date on it, and then honor that date.</p>
 </div>
-<div class="todo" style="margin-top:22px"><div class="badge">&#9998; Your edit</div>
-<p style="margin:0">Draft reasoning &mdash; replace with Scott's.</p></div>`},
+<div class="cols" style="margin-top:20px">
+<div class="col do"><span class="lbl">Reach for it when</span><ul>
+<li>You are asked for a number you have not personally verified.</li>
+<li>The question has tax, legal or covenant implications and you are not the specialist.</li>
+<li>Someone wants you to bless a decision that is already made.</li>
+<li>You feel the urge to say something clever.</li>
+</ul></div>
+<div class="col dont"><span class="lbl">Not this</span><ul>
+<li>"Off the top of my head, probably around&hellip;"</li>
+<li>"Yeah, that should be fine."</li>
+<li>Silence, then changing the subject.</li>
+<li>Any promise to follow up that you do not diary.</li>
+</ul></div>
+</div>`},
 
-/* ---------- TRICK 3 ---------- */
+/* 6 NEVER VOUCH */
 {m:'School of Tricks',dark:1,h:`
 <div class="eyebrow"><span class="pip"></span> Trick 03</div>
-<div class="rulebox"><div class="r">Never vouch for the client.<br>Never speak poorly of the client.</div></div>`},
+<div class="rulebox"><div class="r">Never vouch for the client.</div></div>`},
 
 {m:'School of Tricks',h:`
-<div class="eyebrow"><span class="pip"></span> Trick 03</div>
-<h2 class="hd">Why</h2>
+<div class="eyebrow"><span class="pip"></span> Trick 03 &middot; Why</div>
+<h2 class="hd">Stay neutral</h2>
 <div class="why">
-<span class="lbl">Never Vouch</span>
-<p>When you vouch, you lend your name &mdash; and LCG's &mdash; to facts you did not produce and cannot defend.
-"They're good people, the numbers are solid" converts their representation into <strong>your</strong>
-representation.</p>
-<p>Then the AR aging turns out to include a related-party receivable rolling fourteen months. Their credibility
-is their problem. Yours is that you attached your judgment to it, and the lender now discounts everything else
-you said &mdash; including the parts you verified.</p>
-<p>The professional move is attribution. "Management represents that&hellip;" "Per the schedule provided&hellip;"
-"We tested X and did not test Y." That is not hedging. It is an accurate description of what you know.</p>
-</div>
-<div class="why red" style="margin-top:18px">
-<span class="lbl">Never Speak Poorly</span>
-<p>It will get back. Deal communities are small, the lender knows the sponsor, the sponsor knows the CFO's next
-employer.</p>
-<p>Worse and more permanent: <strong>anyone who hears you speak poorly of a client correctly concludes you will
-speak poorly of them.</strong> You are not demonstrating candor, you are demonstrating that your discretion is
-conditional &mdash; and discretion is the entire product in a distressed engagement.</p>
-<p>Performance is describable. People are not. "The reporting package has been late three of the last four
-months" has a remedy attached. "Their CFO is useless" closes doors.</p>
-</div>
-<div class="todo" style="margin-top:22px"><div class="badge">&#9998; Your edit</div>
-<p style="margin:0">Draft reasoning &mdash; replace with Scott's.</p></div>`},
+<span class="lbl">The Why</span>
+<p>Opinions about any given person inside a client company are rarely unanimous. The controller you found
+capable and easy to work with may be viewed very differently by the CFO, the owner, or the sponsor.</p>
+<p>Vouch for someone and you have taken a side in a disagreement you are not party to and cannot see all of.
+<strong>Relationships change quickly.</strong> The person you praised in March may be gone in June, and your
+endorsement is still on the record.</p>
+<p>The safe ground is neutrality. Describe what you observed and what you were told. Attribute anything you did
+not verify yourself: "Management represents that&hellip;" "Per the schedule provided&hellip;" That is not
+hedging &mdash; it is an accurate account of what you actually know.</p>
+</div>`},
 
-/* ---------- QUOTES ---------- */
-{m:'School of Tricks',wide:1,h:`
-<div class="eyebrow"><span class="pip"></span> Quotes</div>
-<h2 class="hd" style="margin-bottom:22px">Quotes</h2>
-<div class="qgrid">
-<div class="qc"><q>You are in danger of living a life so comfortable and soft that you will die without ever realizing your true potential.</q><div class="by">David Goggins</div></div>
-<div class="qc alt"><q>Motivation is crap. Motivation comes and goes. When you're driven, whatever is in front of you will get destroyed.</q><div class="by">David Goggins</div></div>
-<div class="qc"><q>Discipline equals freedom.</q><div class="by">Jocko Willink</div></div>
-</div>
-<div class="todo" style="margin-top:24px"><div class="badge">&#9998; Your input</div>
-<p style="margin:0">Placeholders. Send Scott's actual quote list and I'll replace these and distribute them
-through the trick screens.</p></div>`},
+/* 8 NEVER SPEAK POORLY */
+{m:'School of Tricks',dark:1,h:`
+<div class="eyebrow"><span class="pip"></span> Trick 04</div>
+<div class="rulebox"><div class="r">Never speak poorly<br>of the client.</div></div>`},
 
-/* ---------- HOT KEYS ---------- */
+{m:'School of Tricks',h:`
+<div class="eyebrow"><span class="pip"></span> Trick 04 &middot; Why</div>
+<h2 class="hd">Never create an adversary</h2>
+<div class="why red">
+<span class="lbl">The Why</span>
+<p>We never want to turn a client into an adversary. It is a small industry and word travels.</p>
+<p>A client who feels badly spoken of will bad-mouth us in return &mdash; and the damage does not stop with
+them. It <strong>puts questions in the sponsor's head</strong> about our judgment, our discretion, and whether
+we are worth the fee. You may never hear that conversation happen.</p>
+<p>Same discipline as Trick 03: stay neutral. Performance is describable, people are not. "The reporting
+package has been late three of the last four months" is an observation with a remedy attached. "Their
+controller is in over his head" is a verdict on a person that you will not be able to defend a year from now.</p>
+</div>`},
+
+/* 10 KNOWLEDGE CHECK */
+{m:'School of Tricks',quiz:{
+q:'Knowledge check',
+scen:'You are winding down a call with the sponsor. They have been friendly all engagement. Offhand, they ask: "Between us &mdash; is their controller any good? We are deciding whether to bring in outside help." You have watched this controller miss three reporting deadlines and misstate inventory twice.',
+opts:[
+{t:'"Between us &mdash; no, I would bring someone in."',ok:0,
+ fb:'This breaks both tricks at once. You have spoken poorly of the client and rendered a verdict on a person. If it gets back, you have made an adversary; and the sponsor now knows your discretion is negotiable.'},
+{t:'"He is doing his best with the resources he has."',ok:0,
+ fb:'This is a vouch. You have made a judgment about effort and circumstances you cannot verify. If the next misstatement is material, you are the person who told the sponsor he was doing his best.'},
+{t:'"I can\\u2019t speak to capability. What I can tell you is the reporting package has been late three of the last four months, and we found two inventory misstatements requiring restatement."',ok:1,
+ fb:'Correct. Neutral, and still useful. You gave the sponsor the observable facts they need for the decision without endorsing or condemning a person. Every word is defensible in writing, to the controller, a year from now.'},
+{t:'"I would rather not get into personnel." Then change the subject.',ok:0,
+ fb:'The instinct is right but it leaves the sponsor with nothing and reads as evasive. They are not fishing for gossip, they are making a decision. Give them the facts &mdash; those are yours to give.'}
+]}},
+
+/* 11 HOT KEYS DIVIDER */
 {m:'Hot Keys',dark:1,h:`
-<div class="eyebrow"><span class="pip"></span> Section 02</div>
-<div class="rulebox"><div class="r">Important Hot Keys</div></div>`},
+<div class="eyebrow"><span class="pip"></span> Module 3</div>
+<h1 class="big">Hot <em>Keys</em></h1>
+<p class="lede">Five categories, 108 shortcuts. Each one comes with a live drill &mdash; press the actual keys
+and the page checks you.</p>`},
 
-{m:'Hot Keys',wide:1,hotkeys:1}
+/* 12 HOW THE DRILL WORKS */
+{m:'Hot Keys',h:`
+<div class="eyebrow"><span class="pip"></span> Module 3</div>
+<h2 class="hd">How the drill works</h2>
+<div class="cards c3" style="margin:20px 0 22px">
+<div class="card"><span class="tag">01</span><h4>Read the task</h4><p>You get the action, not the answer. "Fill down from the cell above."</p></div>
+<div class="card"><span class="tag">02</span><h4>Press the keys</h4><p>Actually press them. The page captures the real combination off your keyboard.</p></div>
+<div class="card"><span class="tag">03</span><h4>Advance on correct</h4><p>Get it right and it moves on. Get it wrong and it tells you what you pressed. Reset any time.</p></div>
+</div>
+<div class="callout"><div class="ic">!</div><div><h4>A few are reference-only</h4>
+<p>Windows key combinations, <kbd>Ctrl</kbd>+<kbd>W</kbd>, <kbd>Ctrl</kbd>+<kbd>N</kbd> and the
+<kbd>Alt</kbd> ribbon sequences get intercepted by Windows or the browser before this page can see them.
+Those are marked <em class="i">reference</em> and excluded from the drill &mdash; learn them, just not here.</p></div></div>`},
+
+/* 13-17 PRACTICE */
+{m:'Hot Keys',wide:1,practice:'Excel'},
+{m:'Hot Keys',wide:1,practice:'Outlook'},
+{m:'Hot Keys',wide:1,practice:'Teams'},
+{m:'Hot Keys',wide:1,practice:'File Explorer'},
+{m:'Hot Keys',wide:1,practice:'Windows'},
+
+/* 18 SALESFORCE */
+{m:'Admin',dark:1,h:`
+<div class="eyebrow"><span class="pip"></span> Module 4</div>
+<h1 class="big">Logging Time<br>in <em>Salesforce</em></h1>`},
+
+{m:'Admin',h:`
+<div class="eyebrow"><span class="pip"></span> Module 4</div>
+<h2 class="hd">Logging Time in Salesforce</h2>
+<div class="todo"><div class="badge">&#9998; TBD &mdash; needs your walkthrough</div>
+<p>Marked TBD in your notes. Send me any of the following and I'll build the screens:</p>
+<ul>
+<li>Screenshots of the time entry flow, or a screen recording</li>
+<li>How engagements/projects map to Salesforce records</li>
+<li>Billable vs. non-billable coding rules</li>
+<li>Submission deadline and who chases it</li>
+<li>The three mistakes new hires always make</li>
+</ul></div>`},
+
+/* 20 EXPENSES */
+{m:'Admin',dark:1,h:`
+<div class="eyebrow"><span class="pip"></span> Module 5</div>
+<h1 class="big">Submitting<br><em>Expenses</em></h1>`},
+
+{m:'Admin',h:`
+<div class="eyebrow"><span class="pip"></span> Module 5</div>
+<h2 class="hd">Submitting Expenses</h2>
+<div class="todo"><div class="badge">&#9998; TBD &mdash; needs your walkthrough</div>
+<p>Also TBD. I saw Expensify in your bookmarks &mdash; confirm the system and I'll build it out:</p>
+<ul>
+<li>Which platform, and how to get access</li>
+<li>Receipt requirements and the dollar threshold</li>
+<li>Per diem, mileage, and travel booking policy</li>
+<li>How client-billable expenses are coded differently</li>
+<li>Approval chain and reimbursement timing</li>
+</ul></div>`},
+
+/* 22 CLOSE */
+{m:'Admin',dark:1,h:`
+<div class="eyebrow"><span class="pip"></span> Done</div>
+<h1 class="big">That's the <em>foundation.</em></h1>
+<p class="lede">Come back to Module 2 before every new client kickoff, and to Module 3 whenever a shortcut
+stops being automatic.</p>`}
 ];
 
 /* ---- LCG pinwheel mark (reconstructed vector) ---- */
@@ -725,6 +944,172 @@ document.querySelectorAll('.wm').forEach(function(w){
   w.innerHTML = lcgMark('#7C99D0') +
     '<span class="txt"><span class="l">LCG</span><span class="a">ADVISORS</span></span>';
 });
+
+
+/* ========================= TOC ========================= */
+var MODMETA=[
+ {n:'01',t:'Welcome to LCG',d:'What this tool is, and what HR covers instead',min:2},
+ {n:'02',t:"Scott Webb's School of Tricks",d:'Four habits, the reasoning behind each, and a knowledge check',min:12},
+ {n:'03',t:'Hot Keys',d:'108 shortcuts across five apps, with live practice drills',min:25},
+ {n:'04',t:'Logging Time in Salesforce',d:'Coming soon',min:0},
+ {n:'05',t:'Submitting Expenses',d:'Coming soon',min:0}
+];
+function tocHTML(){
+  var tot=MODMETA.reduce(function(a,m){return a+m.min},0);
+  return '<div class="eyebrow"><span class="pip"></span> Course overview</div>'+
+  '<h2 class="hd" style="margin-bottom:8px">What you\'re about to cover</h2>'+
+  '<p style="margin-bottom:24px">About <strong>'+tot+' minutes</strong> end to end. Your place is tracked as '+
+  'you go and the menu at top right jumps anywhere.</p>'+
+  '<div class="toc">'+MODMETA.map(function(m){
+    return '<div class="tocrow'+(m.min?'':' soon')+'">'+
+      '<span class="tn">'+m.n+'</span>'+
+      '<span class="tt"><b>'+m.t+'</b><span>'+m.d+'</span></span>'+
+      '<span class="tm">'+(m.min?m.min+' min':'TBD')+'</span></div>';
+  }).join('')+'</div>';
+}
+
+/* ========================= PRACTICE DRILL ========================= */
+var CODEMAP={Backquote:'`',Minus:'-',Equal:'=',BracketLeft:'[',BracketRight:']',Backslash:'\\',
+ Semicolon:';',Quote:"'",Comma:',',Period:'.',Slash:'/',Space:'space',Enter:'enter',Tab:'tab',
+ Escape:'esc',Backspace:'backspace',Delete:'del',Home:'home',End:'end',PageUp:'pgup',PageDown:'pgdn',
+ ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right'};
+function evCombo(e){
+  var p=[];
+  if(e.ctrlKey)p.push('ctrl');
+  if(e.altKey)p.push('alt');
+  if(e.shiftKey)p.push('shift');
+  if(e.metaKey)p.push('meta');
+  var c=e.code,k='';
+  if(/^Key[A-Z]$/.test(c))k=c.slice(3).toLowerCase();
+  else if(/^Digit[0-9]$/.test(c))k=c.slice(5);
+  else if(/^Numpad[0-9]$/.test(c))k=c.slice(6);
+  else if(/^F[0-9]{1,2}$/.test(c))k=c.toLowerCase();
+  else if(CODEMAP[c])k=CODEMAP[c];
+  else if(/^(Control|Alt|Shift|Meta)(Left|Right)$/.test(c))return null;
+  else k=(e.key||'').toLowerCase();
+  if(!k)return null;
+  p.push(k);
+  return p.join('+');
+}
+function prettyCombo(c){
+  return c.split('+').map(function(x){
+    var m={ctrl:'Ctrl',alt:'Alt',shift:'Shift',meta:'Win',up:'↑',down:'↓',left:'←',right:'→',
+      enter:'Enter',space:'Space',tab:'Tab',esc:'Esc',del:'Delete',pgup:'PgUp',pgdn:'PgDn',
+      home:'Home',end:'End',backspace:'Backspace'};
+    if(m[x])return m[x];
+    if(/^f[0-9]{1,2}$/.test(x))return x.toUpperCase();
+    return x.length===1?x.toUpperCase():x;
+  }).map(function(x){return '<kbd>'+x+'</kbd>'}).join('<span class="plus">+</span>');
+}
+function keyHTML(arr){
+  return arr.map(function(k){return '<kbd>'+k+'</kbd>'}).join('<span class="plus">+</span>');
+}
+
+var GRID=[
+ ['','A','B','C','D'],
+ ['1','Client','Q1','Q2','Q3'],
+ ['2','Meridian','142,500','138,200','151,900'],
+ ['3','Alcove','88,400','91,750','86,300'],
+ ['4','Riverton','203,100','198,600','211,450'],
+ ['5','Total','434,000','428,550','449,650']
+];
+function gridHTML(){
+  return '<div class="xgrid"><table>'+GRID.map(function(row,ri){
+    return '<tr>'+row.map(function(cell,ci){
+      var head=(ri===0||ci===0);
+      var cls=head?'h':(ri===5?'tot':'');
+      if(ri===2&&ci===2)cls+=' sel';
+      return '<t'+(head?'h':'d')+(cls?' class="'+cls.trim()+'"':'')+'>'+cell+'</t'+(head?'h':'d')+'>';
+    }).join('')+'</tr>';
+  }).join('')+'</table></div>';
+}
+var CTXART={
+ 'Outlook':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Inbox &mdash; tcoulter@lcgadvisors.com</span></div><div class="mockbody"><div class="mrow sel"><b>Meridian Mfg</b><span>RE: August borrowing base</span><i>2:14 PM</i></div><div class="mrow"><b>First Regional</b><span>Forbearance draft for review</span><i>1:02 PM</i></div><div class="mrow"><b>S. Webb</b><span>13-week model &mdash; comments</span><i>11:48 AM</i></div><div class="mrow"><b>Alcove Holdings</b><span>Data room access</span><i>9:30 AM</i></div></div></div>',
+ 'Teams':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Teams &mdash; SFC Practice</span></div><div class="mockbody"><div class="mrow sel"><b>Meridian &mdash; Weekly</b><span>Call in progress &middot; 4 participants</span><i>live</i></div><div class="mrow"><b>SFC Practice</b><span>General channel</span><i>3 new</i></div><div class="mrow"><b>S. Webb</b><span>Can you send the latest?</span><i>10:22 AM</i></div></div></div>',
+ 'File Explorer':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Meridian Mfg &gt; 2026 &gt; Fieldwork</span></div><div class="mockbody"><div class="mrow sel"><b>&#128193; AR Aging</b><span>File folder</span><i>8/18/26</i></div><div class="mrow"><b>&#128196; 13-Week CF v4.xlsx</b><span>Excel Worksheet</span><i>8/19/26</i></div><div class="mrow"><b>&#128196; Borrowing Base.xlsx</b><span>Excel Worksheet</span><i>8/17/26</i></div><div class="mrow"><b>&#128196; Draft Report.docx</b><span>Word Document</span><i>8/20/26</i></div></div></div>',
+ 'Windows':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Desktop</span></div><div class="mockbody" style="display:flex;gap:10px;flex-wrap:wrap;padding:18px"><span class="tile">Excel</span><span class="tile">Outlook</span><span class="tile">Teams</span><span class="tile">Explorer</span><span class="tile">Chrome</span></div></div>'
+};
+
+var PS={};  /* per-category drill state */
+function practiceHTML(cat){
+  var items=PK[cat], drill=items.filter(function(i){return i.drill});
+  var ref=items.filter(function(i){return !i.drill});
+  if(!PS[cat])PS[cat]={i:0,done:{},wrong:null,shown:false,order:drill.map(function(_,n){return n})};
+  return '<div class="eyebrow"><span class="pip"></span> Module 3 &middot; '+cat+'</div>'+
+    '<h2 class="hd" style="margin-bottom:6px">'+cat+' Hot Keys</h2>'+
+    '<p style="margin-bottom:20px">'+drill.length+' drills'+(ref.length?' &middot; '+ref.length+' reference-only':'')+'</p>'+
+    '<div class="drill" id="drill-'+cat.replace(/ /g,'')+'"></div>'+
+    (ref.length?'<div class="refwrap"><div class="reflbl">Reference only &mdash; Windows or the browser '+
+      'intercepts these before the page sees them</div><div class="refgrid">'+ref.map(function(r){
+        return '<div class="hk'+(r.seq?' seq':'')+'"><div class="keys">'+keyHTML(r.k)+'</div>'+
+               '<div class="d">'+r.d+(r.seq?' <span class="seqtag">press in sequence</span>':'')+'</div></div>';
+      }).join('')+'</div></div>':'');
+}
+function drawDrill(cat){
+  var box=document.getElementById('drill-'+cat.replace(/ /g,''));
+  if(!box)return;
+  var drill=PK[cat].filter(function(i){return i.drill});
+  var st=PS[cat];
+  if(!drill.length){
+    box.innerHTML='<div class="dcard"><div class="dtask">Every shortcut in this category is handled by Windows '+
+      'itself, so the page can\'t capture them. Use the reference list below.</div></div>'+
+      (CTXART[cat]||'');
+    return;
+  }
+  var doneN=Object.keys(st.done).length;
+  if(doneN>=drill.length){
+    box.innerHTML='<div class="dcard done"><div class="dbig">&#10003;</div>'+
+      '<div class="dtask">All '+drill.length+' '+cat+' drills complete.</div>'+
+      '<button class="dbtn" data-act="reset">Practice again</button></div>';
+  } else {
+    var it=drill[st.i];
+    box.innerHTML=
+      '<div class="dprog"><div class="dbar"><i style="width:'+(doneN/drill.length*100)+'%"></i></div>'+
+        '<span class="dcount">'+doneN+' / '+drill.length+'</span></div>'+
+      '<div class="dcard'+(st.wrong?' bad':'')+(st.shown?' shown':'')+'">'+
+        '<span class="dlbl">Press the shortcut for</span>'+
+        '<div class="dtask">'+it.d.replace(/<[^>]+>/g,'')+'</div>'+
+        (st.shown?'<div class="dans">'+keyHTML(it.k)+'</div>':
+          '<div class="dslot">'+(st.wrong?prettyCombo(st.wrong)+'<span class="x">&#10007;</span>':
+            '<span class="dhint">waiting for keys&hellip;</span>')+'</div>')+
+        '<div class="dactions">'+
+          '<button class="dbtn ghost" data-act="show">'+(st.shown?'Next':'Show answer')+'</button>'+
+          '<button class="dbtn ghost" data-act="skip">Skip</button>'+
+          '<button class="dbtn ghost" data-act="reset">Reset</button>'+
+        '</div>'+
+      '</div>'+(cat==='Excel'?gridHTML():(CTXART[cat]||''));
+  }
+  box.querySelectorAll('.dbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var a=b.dataset.act;
+      if(a==='reset'){PS[cat]={i:0,done:{},wrong:null,shown:false};}
+      else if(a==='skip'){st.wrong=null;st.shown=false;st.i=nextIdx(cat);}
+      else if(a==='show'){ if(st.shown){st.shown=false;st.wrong=null;st.i=nextIdx(cat);} else {st.shown=true;st.wrong=null;} }
+      drawDrill(cat);
+    });
+  });
+}
+function nextIdx(cat){
+  var drill=PK[cat].filter(function(i){return i.drill}),st=PS[cat];
+  for(var n=1;n<=drill.length;n++){var j=(st.i+n)%drill.length;if(!st.done[j])return j}
+  return st.i;
+}
+function drillKey(e){
+  var s=S[cur]; if(!s||!s.practice)return;
+  var cat=s.practice, st=PS[cat]; if(!st)return;
+  var drill=PK[cat].filter(function(i){return i.drill});
+  if(!drill.length||Object.keys(st.done).length>=drill.length)return;
+  var combo=evCombo(e); if(!combo)return;
+  if(combo==='ctrl+w'||combo==='ctrl+n'||combo==='ctrl+t'||combo==='meta')return;
+  e.preventDefault(); e.stopPropagation();
+  var it=drill[st.i];
+  if(combo===it.c){ st.done[st.i]=1; st.wrong=null; st.shown=false;
+    var box=document.getElementById('drill-'+cat.replace(/ /g,''));
+    if(box){var c=box.querySelector('.dcard'); if(c){c.classList.add('good');
+      c.querySelector('.dslot').innerHTML=keyHTML(it.k)+'<span class="ok">&#10003;</span>';}}
+    setTimeout(function(){ st.i=nextIdx(cat); drawDrill(cat); },620);
+  } else { st.wrong=combo; drawDrill(cat); }
+}
 
 /* ========================= ENGINE ========================= */
 var cur=0, seen={0:1}, answered={};
@@ -796,7 +1181,8 @@ function render(){
   var inner=document.createElement('div');
   inner.className='inner';
   if(s.quiz) inner.innerHTML=quizHTML(s.quiz,cur);
-  else if(s.hotkeys) inner.innerHTML=hkHTML();
+  else if(s.toc) inner.innerHTML=tocHTML();
+  else if(s.practice) inner.innerHTML=practiceHTML(s.practice);
   else inner.innerHTML=s.h;
   surf.appendChild(inner); frame.appendChild(surf); d.appendChild(frame);
   stage.innerHTML=''; stage.appendChild(d); stage.scrollTop=0;
@@ -813,17 +1199,7 @@ function render(){
     : (cur===S.length-1 ? 'Complete' : 'Next <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>');
   document.getElementById('hint').textContent = locked ? 'Pick an answer' : '← → to navigate';
 
-  if(s.hotkeys){
-    drawHK();
-    document.getElementById('hkq').addEventListener('input',function(e){hkQ=e.target.value;drawHK()});
-    document.getElementById('hkchips').querySelectorAll('.chip').forEach(function(b){
-      b.addEventListener('click',function(){
-        hkC=b.dataset.c;
-        document.getElementById('hkchips').querySelectorAll('.chip').forEach(function(x){x.classList.toggle('on',x===b)});
-        drawHK();
-      });
-    });
-  }
+  if(s.practice){ drawDrill(s.practice); }
   if(s.quiz && answered[cur]===undefined){
     inner.querySelectorAll('.opt').forEach(function(b){
       b.addEventListener('click',function(){
@@ -862,9 +1238,9 @@ function drawMenu(){
   var el=document.getElementById('menulist'), out='', last='';
   S.forEach(function(s,i){
     if(s.m!==last){ out+='<div class="mgroup">'+s.m+'</div>'; last=s.m }
-    var lbl = s.quiz ? 'Knowledge check' : (s.hotkeys ? 'Shortcut reference' :
+    var lbl = s.quiz ? 'Knowledge check' : (s.toc ? 'Course overview' : (s.practice ? s.practice+' hot keys' :
       (s.h.match(/<h1 class="big">([\s\S]*?)<\/h1>/)||s.h.match(/<div class="r">([\s\S]*?)<\/div>/)||s.h.match(/<h2 class="hd">([\s\S]*?)<\/h2>/)||[,'Screen '+(i+1)])[1]
-        .replace(/<[^>]+>/g,' ').replace(/&mdash;/g,'—').replace(/&nbsp;/g,'').replace(/\s+/g,' ').trim() || 'Screen '+(i+1));
+        .replace(/<[^>]+>/g,' ').replace(/&mdash;/g,'—').replace(/&nbsp;/g,'').replace(/\s+/g,' ').trim() || 'Screen '+(i+1)));
     out+='<button class="mitem'+(i===cur?' cur':'')+(seen[i]?' done':'')+'" data-i="'+i+'">'+
       '<span class="n">'+String(i+1).padStart(2,'0')+'</span><span>'+lbl+'</span>'+
       '<svg class="ck" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></button>';
@@ -890,8 +1266,10 @@ document.getElementById('menuclose').addEventListener('click',closeMenu);
 menu.addEventListener('click',function(e){if(e.target===menu)closeMenu()});
 
 /* keyboard */
+document.addEventListener('keydown',drillKey,true);
 document.addEventListener('keydown',function(e){
   if(e.target.tagName==='INPUT')return;
+  if(S[cur]&&S[cur].practice)return;
   if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();next()}
   if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();back()}
   if(e.key==='Escape')closeMenu();
