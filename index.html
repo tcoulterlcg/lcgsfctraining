@@ -631,6 +631,42 @@ h2.hd{line-height:1.04}
   .keyin{min-width:0}
 }
 
+
+/* ---- syntax block ---- */
+.syn{background:var(--navy-900);border-radius:13px;padding:22px 24px;border:1px solid var(--navy-700)}
+.synline{font-family:var(--mono);font-size:14.5px;line-height:1.7;color:#DCE4EC;margin-bottom:16px;word-break:break-word}
+.synargs{display:grid;gap:7px;border-top:1px solid rgba(255,255,255,.12);padding-top:14px}
+.synargs div{font-size:13px;color:rgba(255,255,255,.7);line-height:1.5;font-family:var(--sans)}
+.synargs span{font-family:var(--mono);font-size:12.5px;margin-right:7px}
+.a1{color:#93AEDC}.a2{color:#8FD3B0}.a3{color:#E8C978}.a4{color:#E39A8C}.a5{color:#BFA3E0}.a6{color:#7FC8D8}
+code{font-family:var(--mono);font-size:12.5px;background:#EEF3FB;padding:2px 6px;border-radius:4px;
+  border:1px solid #D8E2F2;color:var(--brand)}
+.card code{font-size:12px}
+/* ---- swap rows ---- */
+.swap{display:grid;gap:12px;margin-top:6px}
+.swaprow{display:grid;grid-template-columns:1fr 34px 1fr;gap:10px;align-items:stretch}
+.sw{border-radius:11px;padding:15px 17px;font-size:14.5px;line-height:1.55;border:1px solid var(--line);background:#fff}
+.sw .swl{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:7px}
+.sw.bad{background:#FDF6F4;border-color:#F0DEDA;color:#8C3B29}
+.sw.bad .swl{color:#B04A34}
+.sw.good{background:#F3FAF6;border-color:#C9E5D6;color:#1F5E45}
+.sw.good .swl{color:var(--ok)}
+.swarr{display:flex;align-items:center;justify-content:center;color:var(--ink-3);font-size:17px}
+@media(max-width:820px){.swaprow{grid-template-columns:1fr}.swarr{display:none}}
+/* ---- formula quiz ---- */
+.fqcard{text-align:left}
+.fqtask{font-size:clamp(17px,2vw,22px);margin-bottom:18px;text-align:left}
+.fqin{display:flex;align-items:center;gap:9px;margin-bottom:14px}
+.fqeq{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--brand);flex:0 0 auto}
+.fqin input{flex:1;min-width:0;padding:12px 15px;border:1.5px solid var(--line);border-radius:10px;
+  font-family:var(--mono);font-size:14.5px;background:#fff;color:var(--ink);text-transform:uppercase}
+.fqin input:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(53,85,146,.14)}
+.fqin input::placeholder{text-transform:none;color:#9AA5B4;font-size:13px}
+.fqin input:disabled{background:#F3FAF6;border-color:#C9E5D6;color:#1F5E45}
+.xgrid.fq td.fqh,.xgrid.fq th.fqh{background:#EEF3FB;font-weight:700;color:var(--brand)}
+.biglink{font-family:var(--sans);font-weight:700;color:var(--brand);text-decoration:none;font-size:15px}
+.biglink:hover{text-decoration:underline}
+
 </style>
 </head>
 <body>
@@ -803,7 +839,7 @@ your career to the next level inside Scott Webb's SFC practice.</p>`},
 {m:'School of Tricks',dark:1,h:`
 <div class="eyebrow"><span class="pip"></span> Module 2</div>
 <h1 class="big">Scott Webb's<br><em>School of Tricks</em></h1>
-<p class="lede">Four habits that look like manners and are actually risk management.</p>`},
+<p class="lede">Six habits that look like manners and are actually risk management.</p>`},
 
 /* 3 POSITIONING */
 {m:'School of Tricks',h:`
@@ -848,13 +884,91 @@ you have forgotten saying them.</p>
 </ul></div>
 </div>`},
 
-/* 6 NEVER VOUCH */
+/* ---------- TRICK: SOFTENERS ---------- */
 {m:'School of Tricks',dark:1,h:`
 <div class="eyebrow"><span class="pip"></span> Trick 03</div>
+<div class="rulebox"><div class="r">Use softeners when<br>speaking to the client.</div></div>`},
+
+{m:'School of Tricks',wide:1,h:`
+<div class="eyebrow"><span class="pip"></span> Trick 03 &middot; Why</div>
+<h2 class="hd">Say the same thing without the edge</h2>
+<div class="why">
+<span class="lbl">The Why</span>
+<p>You are frequently the person in the room delivering unwelcome news to people who are already under
+pressure. The <em class="i">content</em> of what you say is not negotiable &mdash; the numbers are the
+numbers. How it lands is entirely in your control.</p>
+<p>A softener is a short phrase that makes an observation land as an <strong>invitation to look at
+something together</strong> rather than an accusation. It costs you nothing, it changes nothing about the
+finding, and it is the difference between a controller who helps you and one who stops returning your calls.</p>
+</div>
+<div class="cols" style="margin-top:20px">
+<div class="col dont"><span class="lbl">Instead of</span><ul>
+<li>"That number is wrong."</li>
+<li>"You need to reconcile this."</li>
+<li>"That won't work."</li>
+<li>"Why didn't you book the accrual?"</li>
+<li>"Your close process is too slow."</li>
+</ul></div>
+<div class="col do"><span class="lbl">Try</span><ul>
+<li>"Help me understand how this ties &mdash; I'm getting a different figure."</li>
+<li>"It would help me a lot if we could get this reconciled."</li>
+<li>"I have a concern about that approach &mdash; can I walk you through it?"</li>
+<li>"What drove the decision on the accrual?"</li>
+<li>"What's getting in the way of a faster close?"</li>
+</ul></div>
+</div>
+<div class="callout gold" style="margin-top:20px"><div class="ic">&#9873;</div><div><h4>The pattern</h4>
+<p>Ask rather than tell. Own the uncertainty &mdash; "I'm getting a different figure", not "you got it
+wrong". Aim the sentence at the <em class="i">process</em>, never the person.</p></div></div>`},
+
+/* ---------- TRICK: ABSOLUTES ---------- */
+{m:'School of Tricks',dark:1,h:`
+<div class="eyebrow"><span class="pip"></span> Trick 04</div>
+<div class="rulebox"><div class="r">Avoid absolute<br>statements.</div></div>`},
+
+{m:'School of Tricks',wide:1,h:`
+<div class="eyebrow"><span class="pip"></span> Trick 04 &middot; Why</div>
+<h2 class="hd">Never promise what you can't guarantee</h2>
+<div class="why">
+<span class="lbl">The Why</span>
+<p>Absolutes are commitments in disguise. <em class="i">All. Every. Always. Never. Easy. Guaranteed.
+By Friday.</em> Each one hands the client a standard you have to meet perfectly, and the only possible
+outcomes are meeting it &mdash; which nobody notices &mdash; or missing it.</p>
+<p>They also make you sound like you haven't looked closely. Telling a CFO their problem is easy tells them
+you don't understand their problem.</p>
+<p>Speak in ranges, priorities and direction of travel. You keep the commitment honest and you leave yourself
+somewhere to stand when the fourth account turns out to be a mess.</p>
+</div>
+<div class="swap">
+<div class="swaprow">
+<div class="sw bad"><span class="swl">Absolute</span>"It is easy to get done."</div>
+<div class="swarr">&rarr;</div>
+<div class="sw good"><span class="swl">Better</span>"This is a refined process, but it can be further enhanced."</div>
+</div>
+<div class="swaprow">
+<div class="sw bad"><span class="swl">Absolute</span>"We are going to reconcile ALL balance sheet accounts this week."</div>
+<div class="swarr">&rarr;</div>
+<div class="sw good"><span class="swl">Better</span>"We're prioritising the accounts with the largest exposure this week, and we'll work through the remainder from there."</div>
+</div>
+<div class="swaprow">
+<div class="sw bad"><span class="swl">Absolute</span>"That will never be an issue for the bank."</div>
+<div class="swarr">&rarr;</div>
+<div class="sw good"><span class="swl">Better</span>"Based on what we've seen so far, I'd expect the bank to be comfortable with that &mdash; but it's worth raising early."</div>
+</div>
+<div class="swaprow">
+<div class="sw bad"><span class="swl">Absolute</span>"The model is fully accurate."</div>
+<div class="swarr">&rarr;</div>
+<div class="sw good"><span class="swl">Better</span>"The model ties to the source schedules we tested. Here's what we didn't test."</div>
+</div>
+</div>`},
+
+/* NEVER VOUCH */
+{m:'School of Tricks',dark:1,h:`
+<div class="eyebrow"><span class="pip"></span> Trick 05</div>
 <div class="rulebox"><div class="r">Never vouch for the client.</div></div>`},
 
 {m:'School of Tricks',h:`
-<div class="eyebrow"><span class="pip"></span> Trick 03 &middot; Why</div>
+<div class="eyebrow"><span class="pip"></span> Trick 05 &middot; Why</div>
 <h2 class="hd">Stay neutral</h2>
 <div class="why">
 <span class="lbl">The Why</span>
@@ -870,11 +984,11 @@ hedging &mdash; it is an accurate account of what you actually know.</p>
 
 /* 8 NEVER SPEAK POORLY */
 {m:'School of Tricks',dark:1,h:`
-<div class="eyebrow"><span class="pip"></span> Trick 04</div>
+<div class="eyebrow"><span class="pip"></span> Trick 06</div>
 <div class="rulebox"><div class="r">Never speak poorly<br>of the client.</div></div>`},
 
 {m:'School of Tricks',h:`
-<div class="eyebrow"><span class="pip"></span> Trick 04 &middot; Why</div>
+<div class="eyebrow"><span class="pip"></span> Trick 06 &middot; Why</div>
 <h2 class="hd">Never create an adversary</h2>
 <div class="why red">
 <span class="lbl">The Why</span>
@@ -887,30 +1001,147 @@ package has been late three of the last four months" is an observation with a re
 controller is in over his head" is a verdict on a person that you will not be able to defend a year from now.</p>
 </div>`},
 
-/* 10 KNOWLEDGE CHECK */
+/* KNOWLEDGE CHECK — 5 QUESTIONS */
 {m:'School of Tricks',quiz:{
-q:'Knowledge check',
-scen:'You are winding down a call with the sponsor. They have been friendly all engagement. Offhand, they ask: "Between us &mdash; is their controller any good? We are deciding whether to bring in outside help." You have watched this controller miss three reporting deadlines and misstate inventory twice.',
+q:'Knowledge check 1 of 5',
+scen:'You are in a status meeting. The owner turns to you and asks whether the company will clear its fixed charge covenant at year end. You built the model, but you have not run the Q4 sensitivity and December is not closed.',
 opts:[
-{t:'"Between us &mdash; no, I would bring someone in."',ok:0,
- fb:'This breaks both tricks at once. You have spoken poorly of the client and rendered a verdict on a person. If it gets back, you have made an adversary; and the sponsor now knows your discretion is negotiable.'},
-{t:'"He is doing his best with the resources he has."',ok:0,
- fb:'This is a vouch. You have made a judgment about effort and circumstances you cannot verify. If the next misstatement is material, you are the person who told the sponsor he was doing his best.'},
-{t:'"I can&rsquo;t speak to capability. What I can tell you is the reporting package has been late three of the last four months, and we found two inventory misstatements requiring restatement."',ok:1,
- fb:'Correct. Neutral, and still useful. You gave the sponsor the observable facts they need for the decision without endorsing or condemning a person. Every word is defensible in writing, to the controller, a year from now.'},
-{t:'"I would rather not get into personnel." Then change the subject.',ok:0,
- fb:'The instinct is right but it leaves the sponsor with nothing and reads as evasive. They are not fishing for gossip, they are making a decision. Give them the facts &mdash; those are yours to give.'}
+{t:'"It looks tight, but I think you\'re okay."',ok:0,fb:'You have given a covenant opinion on unfinalised numbers. He will remember it as a commitment, and if Q4 lands 3% off, you told him he was fine.'},
+{t:'"That\'s the right question and I want to give you a real answer. Let me run the Q4 sensitivity against final December numbers and walk you through it Thursday."',ok:1,fb:'Correct. It takes the question seriously, names the work that stands between you and an answer, and puts a date on it. You have bought time without looking evasive.'},
+{t:'"You\'d need to ask your auditors."',ok:0,fb:'You built the model. Punting to someone else reads as either evasion or incompetence, and it invites him to stop bringing you questions.'},
+{t:'"I can\'t comment on that."',ok:0,fb:'Too blunt, and it isn\'t true — you can comment, you just need to do the work first. Say that instead.'}
 ]}},
 
-/* 11 HOT KEYS DIVIDER */
-{m:'Hot Keys',dark:1,h:`
+{m:'School of Tricks',quiz:{
+q:'Knowledge check 2 of 5',
+scen:'The controller sends you a reconciliation. Three accounts do not tie and one of them is off by $340K. You need it fixed, and you need him to keep working with you for the next eleven weeks.',
+opts:[
+{t:'"These don\'t tie. You need to redo them."',ok:0,fb:'Accurate and useless. You have told him he failed and given him nothing to work with. Expect slower responses from here on.'},
+{t:'"There are errors in your reconciliation."',ok:0,fb:'Still aimed at the person. "Your reconciliation" and "errors" together read as a verdict rather than an observation.'},
+{t:'"Help me understand how these three tie — I\'m getting a different figure on the $340K one. Can we walk through it together?"',ok:1,fb:'Correct. Same finding, delivered as a shared problem. You own the uncertainty, you name the specific item, and you have given him a way to engage that doesn\'t require admitting fault.'},
+{t:'Say nothing and fix it yourself.',ok:0,fb:'Tempting, and wrong twice over: he never learns what was wrong, and you have quietly taken responsibility for numbers that are his to produce.'}
+]}},
+
+{m:'School of Tricks',quiz:{
+q:'Knowledge check 3 of 5',
+scen:'The CEO asks how long the balance sheet clean-up will take. You have looked at four of about twenty accounts. The four were straightforward.',
+opts:[
+{t:'"We\'ll have all the balance sheet accounts reconciled this week."',ok:0,fb:'A classic absolute. You have committed to twenty accounts having examined four, and the only outcomes now are meeting it unnoticed or missing it visibly.'},
+{t:'"It\'s easy — shouldn\'t take long at all."',ok:0,fb:'Two problems. It is an absolute, and telling a CEO their problem is easy signals you have not understood their problem.'},
+{t:'"We\'re prioritising the accounts with the largest exposure this week, and we\'ll work through the remainder from there. I\'ll have a clearer view once we\'re through the first group."',ok:1,fb:'Correct. Direction of travel and a priority order rather than a promise. You have committed to something real and left yourself room for the account that turns out to be a mess.'},
+{t:'"I can\'t give you a timeline yet."',ok:0,fb:'Avoids the absolute but gives the CEO nothing. You have seen four accounts — you can describe an approach even if you cannot give a date.'}
+]}},
+
+{m:'School of Tricks',quiz:{
+q:'Knowledge check 4 of 5',
+scen:'The lender asks, casually, whether they can rely on the numbers the borrower\'s finance team is producing. You have found the team responsive and the schedules broadly reliable, though you have only tested the top twenty balances.',
+opts:[
+{t:'"Yes, they\'re good people. I\'d stand behind those numbers."',ok:0,fb:'You have vouched. Their representation is now your representation, and the moment something below your testing threshold turns up wrong, everything else you said gets discounted too.'},
+{t:'"We tested the top twenty receivables by balance and they tied to supporting documentation. We did not test below that threshold."',ok:1,fb:'Correct. Precisely what you did, precisely what you did not, and no judgment about people. The lender can decide how much comfort that gives them — which is their job, not yours.'},
+{t:'"They\'ve been responsive and I haven\'t seen anything that worries me."',ok:0,fb:'Softer, but still a character reference. "Nothing worries me" is an assurance about things you have not examined.'},
+{t:'"I couldn\'t say."',ok:0,fb:'You can say a great deal — you just tested twenty balances. Refusing to share observable findings makes you look either unhelpful or as though you are hiding something.'}
+]}},
+
+{m:'School of Tricks',quiz:{
+q:'Knowledge check 5 of 5',
+scen:'Late on a call, the sponsor sighs and says: "Off the record — is their controller actually capable? We\'re deciding whether to require a CRO." You have watched this controller miss three reporting deadlines and misstate inventory twice.',
+opts:[
+{t:'"Off the record — no. I\'d require the CRO."',ok:0,fb:'There is no off the record. You have handed a verdict on a person to someone who may act on it, and you have shown the sponsor that your discretion is negotiable.'},
+{t:'"He\'s doing his best with the resources he has."',ok:0,fb:'A vouch wearing sympathetic clothing. You have made a judgment about effort and circumstances you cannot verify.'},
+{t:'"I can\'t speak to capability. What I can tell you is the reporting package has been late three of the last four months, and we found two inventory misstatements requiring restatement."',ok:1,fb:'Correct. The sponsor gets exactly what they need for the credit decision, and every word is defensible in writing, to the controller, a year from now.'},
+{t:'"I\'d rather not get into personnel." Then change the subject.',ok:0,fb:'Right instinct, wrong execution. It leaves the sponsor with nothing and reads as evasive. Give them the observable facts — those are yours to give.'}
+]}},
+
+/* ---------- MODULE 3: EXCEL FORMULAS ---------- */
+{m:'Excel Formulas',dark:1,h:`
 <div class="eyebrow"><span class="pip"></span> Module 3</div>
-<h1 class="big">Hot <em>Keys</em></h1>
+<h1 class="big">Mastering<br><em>Excel Formulas</em></h1>
+<p class="lede">Two functions carry most of the analytical weight in this practice. Learn them properly and
+you will rebuild someone else's schedule in minutes instead of hours.</p>`},
+
+{m:'Excel Formulas',wide:1,h:`
+<div class="eyebrow"><span class="pip"></span> Module 3 &middot; Formula 01</div>
+<h2 class="hd">XLOOKUP</h2>
+<p style="margin-bottom:18px">Finds a value in one column and returns the matching value from another.
+It replaces VLOOKUP, and it is better in every way that matters.</p>
+<div class="syn">
+<div class="synline">=XLOOKUP(<span class="a1">lookup_value</span>, <span class="a2">lookup_array</span>, <span class="a3">return_array</span>, <span class="a4">[if_not_found]</span>, <span class="a5">[match_mode]</span>, <span class="a6">[search_mode]</span>)</div>
+<div class="synargs">
+<div><span class="a1">lookup_value</span> what you are searching for</div>
+<div><span class="a2">lookup_array</span> the column you search in</div>
+<div><span class="a3">return_array</span> the column you want back</div>
+<div><span class="a4">if_not_found</span> what to show instead of #N/A</div>
+<div><span class="a5">match_mode</span> 0 exact (default) &middot; -1 next smaller &middot; 1 next larger &middot; 2 wildcard</div>
+<div><span class="a6">search_mode</span> 1 top to bottom (default) &middot; -1 bottom to top</div>
+</div>
+</div>
+<div class="cols" style="margin-top:20px">
+<div class="col do"><span class="lbl">Why it beats VLOOKUP</span><ul>
+<li>Returns a column to the <b>left</b> of the lookup. VLOOKUP cannot.</li>
+<li>Defaults to an <b>exact</b> match. VLOOKUP defaults to approximate, which is how wrong numbers get into decks.</li>
+<li>No column-index number, so <b>inserting a column doesn't break it</b>.</li>
+<li>Built-in not-found handling &mdash; no IFERROR wrapper.</li>
+<li>Can search bottom-up to find the <b>most recent</b> match.</li>
+</ul></div>
+<div class="col dont"><span class="lbl">Watch for</span><ul>
+<li>Needs Microsoft 365 or Excel 2021+. On older builds use INDEX/MATCH.</li>
+<li>Sending a workbook to a client on an older build &mdash; they'll see #NAME?.</li>
+<li>Text-formatted numbers won't match real numbers. A common tie-out failure.</li>
+<li>Trailing spaces from a system export. Wrap in TRIM if a match fails inexplicably.</li>
+</ul></div>
+</div>`},
+
+{m:'Excel Formulas',wide:1,h:`
+<div class="eyebrow"><span class="pip"></span> Module 3 &middot; Formula 02</div>
+<h2 class="hd">SUMIFS</h2>
+<p style="margin-bottom:18px">Adds up a column, but only the rows that meet every condition you set.
+This is how you turn a 4,000-row GL export into a schedule someone can read.</p>
+<div class="syn">
+<div class="synline">=SUMIFS(<span class="a1">sum_range</span>, <span class="a2">criteria_range1</span>, <span class="a3">criteria1</span>, <span class="a2">[criteria_range2]</span>, <span class="a3">[criteria2]</span>, &hellip;)</div>
+<div class="synargs">
+<div><span class="a1">sum_range</span> the column of numbers you are adding &mdash; always first</div>
+<div><span class="a2">criteria_range</span> the column you are testing</div>
+<div><span class="a3">criteria</span> what it has to equal or satisfy</div>
+</div>
+</div>
+<div class="cards c2" style="margin-top:20px">
+<div class="card"><span class="tag">Criteria you'll use constantly</span><h4>Operators go in quotes</h4>
+<p><code>"&gt;60"</code> greater than 60 &middot; <code>"&lt;=90"</code> up to 90 &middot;
+<code>"&lt;&gt;0"</code> not zero &middot; <code>"Meridian*"</code> starts with Meridian &middot;
+<code>"&gt;"&amp;E2</code> greater than the value in E2</p></div>
+<div class="card"><span class="tag">The pattern that catches people</span><h4>A range for a date window</h4>
+<p>Two conditions on the same column: <code>=SUMIFS(D:D, C:C, "&gt;=31", C:C, "&lt;=90")</code>.
+Same criteria range twice, one for each bound.</p></div>
+</div>
+<div class="callout" style="margin-top:20px"><div class="ic">!</div><div><h4>SUMIF vs SUMIFS</h4>
+<p>SUMIFS takes the sum range <b>first</b>. SUMIF takes it <b>last</b>. Use SUMIFS always, even for one
+condition &mdash; consistent argument order, and you can add a second condition later without rewriting.
+Same applies to COUNTIFS and AVERAGEIFS.</p></div></div>`},
+
+{m:'Excel Formulas',wide:1,formulaquiz:1},
+
+{m:'Excel Formulas',h:`
+<div class="eyebrow"><span class="pip"></span> Module 3 &middot; Resources</div>
+<h2 class="hd">Additional resources</h2>
+<div class="todo"><div class="badge">&#9998; Your file</div>
+<h4>The practice workbook</h4>
+<p>You said you already have the Excel file for this. Send it over and I'll add it to the site as a direct
+download from this screen &mdash; it'll live alongside the page so nobody has to go hunting in SharePoint
+for it.</p>
+<ul>
+<li>Drop the .xlsx in this chat and I'll commit it to the repo</li>
+<li>Or give me a SharePoint link and I'll link out to it instead</li>
+</ul></div>`},
+
+/* HOT KEYS DIVIDER */
+{m:'Mastering Hot Keys',dark:1,h:`
+<div class="eyebrow"><span class="pip"></span> Module 4</div>
+<h1 class="big">Mastering<br><em>Hot Keys</em></h1>
 <p class="lede">Five categories, 108 shortcuts. Build each one from memory and the page checks you.</p>`},
 
 /* 12 HOW THE DRILL WORKS */
-{m:'Hot Keys',h:`
-<div class="eyebrow"><span class="pip"></span> Module 3</div>
+{m:'Mastering Hot Keys',h:`
+<div class="eyebrow"><span class="pip"></span> Module 4</div>
 <h2 class="hd">How the drill works</h2>
 <div class="cards c3" style="margin:20px 0 22px">
 <div class="card"><span class="tag">01</span><h4>Read the task</h4><p>You get the action, not the answer. "Fill down from the cell above."</p></div>
@@ -924,21 +1155,21 @@ can intercept them. So you assemble the shortcut here to prove you know it, then
 Excel or Outlook where it belongs.</p></div></div>`},
 
 /* 13-17 PRACTICE */
-{m:'Hot Keys',wide:1,practice:'Excel'},
-{m:'Hot Keys',wide:1,practice:'Outlook'},
-{m:'Hot Keys',wide:1,practice:'Teams'},
-{m:'Hot Keys',wide:1,practice:'File Explorer'},
-{m:'Hot Keys',wide:1,practice:'Windows'},
+{m:'Mastering Hot Keys',wide:1,practice:'Excel'},
+{m:'Mastering Hot Keys',wide:1,practice:'Outlook'},
+{m:'Mastering Hot Keys',wide:1,practice:'Teams'},
+{m:'Mastering Hot Keys',wide:1,practice:'File Explorer'},
+{m:'Mastering Hot Keys',wide:1,practice:'Windows'},
 
 /* ---------- TECHNOLOGY MODULE ---------- */
 {m:'Technology',dark:1,h:`
-<div class="eyebrow"><span class="pip"></span> Module 4</div>
+<div class="eyebrow"><span class="pip"></span> Module 5</div>
 <h1 class="big">Your <em>Toolkit</em></h1>
 <p class="lede">What's on your machine, what you have to ask for, and how to actually use the two tools
 that will change how you work.</p>`},
 
 {m:'Technology',h:`
-<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Machine setup</div>
+<div class="eyebrow"><span class="pip"></span> Module 5 &middot; Machine setup</div>
 <h2 class="hd">Does your computer come with Dropbox?</h2>
 <p><strong>No.</strong> A new LCG machine arrives with the Microsoft stack &mdash; Teams, Outlook, OneNote,
 Excel &mdash; already provisioned. Dropbox and ViewPoint are separate requests you have to make.</p>
@@ -955,7 +1186,7 @@ unable to open a client file.</p>
 &mdash; ticket, email, who approves &mdash; and I'll put the real steps here.</p></div>`},
 
 {m:'Technology',h:`
-<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<div class="eyebrow"><span class="pip"></span> Module 5 &middot; Claude</div>
 <h2 class="hd">Get Claude installed</h2>
 <p>Claude is where a lot of the leverage in this practice now lives &mdash; drafting, model review,
 research, summarising a 90-minute lender call into four bullets. Install the desktop app rather than
@@ -971,7 +1202,7 @@ workspace, not a personal one.</span></div></div>
 </div>`},
 
 {m:'Technology',h:`
-<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<div class="eyebrow"><span class="pip"></span> Module 5 &middot; Claude</div>
 <h2 class="hd">Settings &rarr; turn on your connectors</h2>
 <p>Out of the box Claude only knows what you paste into it. <strong>Connectors</strong> let it read your
 actual work &mdash; and this is the step most people skip.</p>
@@ -988,7 +1219,7 @@ for the specific chat you're in, since a connector can be authenticated but togg
 OneNote ribbon to email it to yourself &mdash; Claude can read it through Outlook.</p></div></div>`},
 
 {m:'Technology',h:`
-<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<div class="eyebrow"><span class="pip"></span> Module 5 &middot; Claude</div>
 <h2 class="hd">Projects</h2>
 <p>A <strong>Project</strong> is a container that remembers. Instead of re-explaining the engagement every
 time you open a chat, you set the context once and every conversation inside that project inherits it.</p>
@@ -1005,7 +1236,7 @@ by whoever opens it next &mdash; including you, three weeks later.</p></div>
 never type them twice.</p></div></div>`},
 
 {m:'Technology',h:`
-<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<div class="eyebrow"><span class="pip"></span> Module 5 &middot; Claude</div>
 <h2 class="hd">Cowork</h2>
 <p>Cowork is the mode where Claude stops answering and starts <strong>doing</strong>. It gets a working
 computer &mdash; a filesystem, a shell, the ability to run code &mdash; plus access to your connectors.</p>
@@ -1020,7 +1251,7 @@ cleans them, and hands you the finished files.</p>
 <p>Written, tested, and deployed from a Cowork session &mdash; which is a fair illustration of the range.</p></div></div>`},
 
 {m:'Technology',wide:1,h:`
-<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Claude</div>
+<div class="eyebrow"><span class="pip"></span> Module 5 &middot; Claude</div>
 <h2 class="hd">In Excel vs. in the app</h2>
 <p style="margin-bottom:22px">Both are useful. They behave differently in one way that matters a great deal:
 <strong>where your conversation history goes.</strong></p>
@@ -1049,8 +1280,39 @@ have it in the app.</p></div></div>
 Runs on Excel for the web, Excel on Windows (M365), and Excel on Mac &mdash; not on the 2016/2019 perpetual
 licences, iPad, or Android.</p>`},
 
+
+{m:'Technology',wide:1,h:`
+<div class="eyebrow"><span class="pip"></span> Module 5 &middot; Claude</div>
+<h2 class="hd">Prompt tips</h2>
+<p style="margin-bottom:20px">The difference between a useless answer and a genuinely good one is almost
+always the prompt, not the model.</p>
+<div class="cards c2">
+<div class="card"><span class="tag">01</span><h4>Give it the role and the reader</h4>
+<p>"You are reviewing this for a lender's credit committee" produces a different memo than "summarise this".
+Say who the output is for.</p></div>
+<div class="card"><span class="tag">02</span><h4>Hand it the source, don't describe it</h4>
+<p>Attach the file or turn on the connector. Claude reasoning about the actual AR aging beats Claude
+reasoning about your summary of it.</p></div>
+<div class="card"><span class="tag">03</span><h4>Say what "done" looks like</h4>
+<p>Length, format, audience. "Six bullets, no jargon, for a CFO who has not seen the file" is a spec.
+"Make it good" is not.</p></div>
+<div class="card"><span class="tag">04</span><h4>Show one example</h4>
+<p>Paste a memo written the way your practice writes memos. One example beats three paragraphs of
+instruction.</p></div>
+<div class="card"><span class="tag">05</span><h4>Ask it to think first</h4>
+<p>"Work through the reconciliation step by step before giving me the answer" catches errors that a
+straight-to-conclusion answer hides.</p></div>
+<div class="card"><span class="tag">06</span><h4>Push back and iterate</h4>
+<p>"That's too soft on the inventory issue — redo it with the specific numbers" is normal use, not
+failure. The second draft is usually the one you keep.</p></div>
+</div>
+<div class="callout" style="margin-top:22px"><div class="ic">&#9878;</div><div><h4>Two rules that are not optional</h4>
+<p><b>Verify anything client-facing.</b> Claude is fast and occasionally confidently wrong — the same
+standard applies as to a first-year's schedule: you sign it, you check it. And <b>respect the engagement
+letter</b> on what client data may go where.</p></div></div>`},
+
 {m:'Technology',h:`
-<div class="eyebrow"><span class="pip"></span> Module 4 &middot; Granola</div>
+<div class="eyebrow"><span class="pip"></span> Module 5 &middot; Granola</div>
 <h2 class="hd">Granola</h2>
 <p>Granola is an AI notetaker for meetings. The thing that makes it different from every other one:
 <strong>no bot joins your call.</strong> Nothing appears in the participant list, nobody is asked to consent
@@ -1069,12 +1331,15 @@ be used on a client call before you turn it on.</p></div></div>`},
 
 /* 18 SALESFORCE */
 {m:'Admin',dark:1,h:`
-<div class="eyebrow"><span class="pip"></span> Module 5</div>
+<div class="eyebrow"><span class="pip"></span> Module 6</div>
 <h1 class="big">Logging Time<br>in <em>Salesforce</em></h1>`},
 
 {m:'Admin',h:`
-<div class="eyebrow"><span class="pip"></span> Module 5</div>
+<div class="eyebrow"><span class="pip"></span> Module 6</div>
 <h2 class="hd">Logging Time in Salesforce</h2>
+<div class="callout gold" style="margin-bottom:20px"><div class="ic">&#8599;</div><div><h4>Salesforce login</h4>
+<p><a href="https://d30000000m5nseas.my.salesforce.com/?ec=302&amp;startURL=%2Fvisualforce%2Fsession%3Furl%3Dhttps%253A%252F%252Fd30000000m5nseas.lightning.force.com%252Flightning%252Fpage%252Fhome" target="_blank" rel="noopener" class="biglink">Open LCG Salesforce &rarr;</a><br>
+Bookmark it now. You will be in here every week.</p></div></div>
 <div class="todo"><div class="badge">&#9998; TBD &mdash; needs your walkthrough</div>
 <p>Marked TBD in your notes. Send me any of the following and I'll build the screens:</p>
 <ul>
@@ -1087,11 +1352,11 @@ be used on a client call before you turn it on.</p></div></div>`},
 
 /* 20 EXPENSES */
 {m:'Admin',dark:1,h:`
-<div class="eyebrow"><span class="pip"></span> Module 6</div>
+<div class="eyebrow"><span class="pip"></span> Module 7</div>
 <h1 class="big">Submitting<br><em>Expenses</em></h1>`},
 
 {m:'Admin',h:`
-<div class="eyebrow"><span class="pip"></span> Module 6</div>
+<div class="eyebrow"><span class="pip"></span> Module 7</div>
 <h2 class="hd">Submitting Expenses</h2>
 <div class="todo"><div class="badge">&#9998; TBD &mdash; needs your walkthrough</div>
 <p>Also TBD. I saw Expensify in your bookmarks &mdash; confirm the system and I'll build it out:</p>
@@ -1103,7 +1368,27 @@ be used on a client call before you turn it on.</p></div></div>`},
 <li>Approval chain and reimbursement timing</li>
 </ul></div>`},
 
-/* 22 CLOSE */
+/* ---------- PING PONG ---------- */
+{m:'Culture',dark:1,h:`
+<div class="eyebrow"><span class="pip"></span> Module 8</div>
+<h1 class="big">Prepare to be a<br><em>ping pong champion</em></h1>`},
+
+{m:'Culture',h:`
+<div class="eyebrow"><span class="pip"></span> Module 8</div>
+<h2 class="hd">Stay light</h2>
+<p>Yes, there is a table, and yes, people are competitive about it. But the actual point is broader
+than the table.</p>
+<p>This work is heavy. You spend your days inside companies having the worst quarter of their existence,
+with people who are frightened about their jobs. If you carry all of that home every night you will not
+last, and you will not be much use to anyone in year three.</p>
+<p><strong>Stay light. Have some fun. Crack jokes.</strong> We work hard here, so when time permits we
+enjoy ourselves around the office. Being the person others want in the room for twelve straight weeks of
+fieldwork is a real professional skill &mdash; not a distraction from one.</p>
+<div class="callout gold" style="margin-top:22px"><div class="ic">&#9749;</div><div><h4>Worth knowing on day one</h4>
+<p>Nobody here is impressed by the person who never leaves their desk. Take the game. Take the coffee.
+Then go back and do excellent work.</p></div></div>`},
+
+/* CLOSE */
 {m:'Admin',dark:1,h:`
 <div class="eyebrow"><span class="pip"></span> Done</div>
 <h1 class="big">That's the <em>foundation.</em></h1>
@@ -1128,14 +1413,138 @@ document.querySelectorAll('.wm').forEach(function(w){
 });
 
 
+/* ========================= FORMULA QUIZ ========================= */
+var FGRID=[
+ ['','A','B','C','D','E'],
+ ['1','Invoice','Client','Lender','Amount','Days Past Due'],
+ ['2','INV-2601','Meridian','First Regional','142,500','0'],
+ ['3','INV-2602','Alcove','First Regional','88,400','45'],
+ ['4','INV-2603','Riverton','Sterling','203,100','72'],
+ ['5','INV-2604','Meridian','First Regional','61,250','18'],
+ ['6','INV-2605','Calder','Sterling','97,800','95'],
+ ['7','INV-2606','Riverton','Sterling','54,600','0'],
+ ['8','INV-2607','Meridian','First Regional','119,300','63'],
+ ['9','INV-2608','Alcove','First Regional','76,150','31']
+];
+var FQ=[
+ {task:'Cell G2 contains an invoice number. Return that invoice’s <b>Lender</b>.',
+  hint:'One lookup. The lender sits in column C, the invoice numbers in column A.',
+  ok:[/^=?XLOOKUP\(G2,A2:A9,C2:C9(,.*)?\)$/,/^=?INDEX\(C2:C9,MATCH\(G2,A2:A9,0\)\)$/],
+  ans:'=XLOOKUP(G2,A2:A9,C2:C9)'},
+ {task:'Cell G2 contains a client name. Return the <b>total Amount</b> for that client.',
+  hint:'Sum range first, then the column you test, then what it must equal.',
+  ok:[/^=?SUMIFS\(D2:D9,B2:B9,G2\)$/,/^=?SUMIF\(B2:B9,G2,D2:D9\)$/],
+  ans:'=SUMIFS(D2:D9,B2:B9,G2)'},
+ {task:'Return the <b>total Amount</b> for every invoice more than 60 days past due.',
+  hint:'The operator goes inside quotes as part of the criteria.',
+  ok:[/^=?SUMIFS\(D2:D9,E2:E9,"?>60"?\)$/,/^=?SUMIF\(E2:E9,"?>60"?,D2:D9\)$/],
+  ans:'=SUMIFS(D2:D9,E2:E9,">60")'},
+ {task:'Cell G2 contains an invoice number that may not exist. Return its <b>Amount</b>, or the text <b>Not found</b> if there is no match.',
+  hint:'XLOOKUP has a fourth argument for exactly this. Otherwise wrap it in IFERROR.',
+  ok:[/^=?XLOOKUP\(G2,A2:A9,D2:D9,"NOTFOUND"\)$/,/^=?IFERROR\(XLOOKUP\(G2,A2:A9,D2:D9\),"NOTFOUND"\)$/,
+      /^=?IFERROR\(INDEX\(D2:D9,MATCH\(G2,A2:A9,0\)\),"NOTFOUND"\)$/],
+  ans:'=XLOOKUP(G2,A2:A9,D2:D9,"Not found")'},
+ {task:'Return the <b>total Amount</b> for invoices between 31 and 90 days past due, inclusive.',
+  hint:'Two conditions on the same column. Name the range twice.',
+  ok:[/^=?SUMIFS\(D2:D9,E2:E9,"?>=31"?,E2:E9,"?<=90"?\)$/,/^=?SUMIFS\(D2:D9,E2:E9,"?<=90"?,E2:E9,"?>=31"?\)$/],
+  ans:'=SUMIFS(D2:D9,E2:E9,">=31",E2:E9,"<=90")'}
+];
+var FQS={i:0,done:{},wrong:null,shown:false,hit:false};
+function normF(v){
+  return (v||'').toUpperCase().replace(/\s+/g,'').replace(/\$/g,'')
+    .replace(/[‘’]/g,"'").replace(/[“”]/g,'"')
+    .replace(/"NOTFOUND"/g,'"NOTFOUND"');
+}
+function fgridHTML(){
+  return '<div class="xgrid fq"><table>'+FGRID.map(function(row,ri){
+    return '<tr>'+row.map(function(cell,ci){
+      var head=(ri===0||ci===0);
+      var cls=head?'h':'';
+      if(ri===1&&ci>0)cls+=' fqh';
+      return '<t'+(head?'h':'d')+(cls.trim()?' class="'+cls.trim()+'"':'')+'>'+cell+'</t'+(head?'h':'d')+'>';
+    }).join('')+'</tr>';
+  }).join('')+'</table></div>';
+}
+function formulaQuizHTML(){
+  var doneN=Object.keys(FQS.done).length;
+  var head='<div class="eyebrow"><span class="pip"></span> Module 3 &middot; Knowledge check</div>'+
+    '<h2 class="hd" style="margin-bottom:6px">Write the formula</h2>'+
+    '<p style="margin-bottom:18px">Five scenarios against the grid below. Type the formula you would '+
+    'actually use. Spacing and <code>$</code> signs are ignored.</p>';
+  if(doneN>=FQ.length){
+    return head+'<div class="dcard done"><div class="dbig">&#10003;</div>'+
+      '<div class="dtask">All five formulas correct.</div>'+
+      '<div class="dactions"><button class="dbtn" data-fq="reset">Try again</button></div></div>'+fgridHTML();
+  }
+  var q=FQ[FQS.i];
+  return head+
+    '<div class="dprog"><div class="dbar"><i style="width:'+(doneN/FQ.length*100)+'%"></i></div>'+
+      '<span class="dcount">'+doneN+' / '+FQ.length+'</span></div>'+
+    '<div class="dcard fqcard'+(FQS.wrong?' bad':'')+(FQS.hit?' good':'')+'">'+
+      '<span class="dlbl">Scenario '+(FQS.i+1)+'</span>'+
+      '<div class="dtask fqtask">'+q.task+'</div>'+
+      '<div class="fqin"><span class="fqeq">=</span>'+
+        '<input id="fqin" placeholder="XLOOKUP(G2,A2:A9,C2:C9)" autocomplete="off" spellcheck="false" '+
+        'value="'+(FQS.hit?q.ans.replace(/^=/,'').replace(/"/g,'&quot;'):'')+'"'+(FQS.hit?' disabled':'')+'>'+
+        '<button class="dbtn" data-fq="check">Check</button></div>'+
+      (FQS.hit?'<div class="dmsg" style="color:var(--ok);font-weight:650">&#10003; Correct</div>':'')+
+      (FQS.wrong?'<div class="dmsg bad">Not quite. '+q.hint+'</div>':'')+
+      (FQS.shown?'<div class="dmsg">Answer: <code>'+q.ans.replace(/"/g,'&quot;')+'</code></div>':'')+
+      '<div class="dactions">'+
+        '<button class="dbtn ghost" data-fq="show">Show answer</button>'+
+        '<button class="dbtn ghost" data-fq="skip">Skip</button>'+
+        '<button class="dbtn ghost" data-fq="reset">Reset</button>'+
+      '</div>'+
+    '</div>'+fgridHTML();
+}
+function fqNext(){
+  for(var n=1;n<=FQ.length;n++){var j=(FQS.i+n)%FQ.length;if(!FQS.done[j])return j}
+  return FQS.i;
+}
+function wireFQ(){
+  var box=document.querySelector('.slide .inner');
+  if(!box)return;
+  var inp=document.getElementById('fqin');
+  if(inp){
+    inp.addEventListener('keydown',function(e){
+      e.stopPropagation();
+      if(e.key==='Enter'){e.preventDefault();fqCheck();}
+    });
+    if(!FQS.hit)setTimeout(function(){try{inp.focus()}catch(e){}},60);
+  }
+  box.querySelectorAll('[data-fq]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var a=b.dataset.fq;
+      if(a==='check')return fqCheck();
+      if(a==='reset')FQS={i:0,done:{},wrong:null,shown:false,hit:false};
+      else if(a==='skip'){FQS.wrong=null;FQS.shown=false;FQS.i=fqNext();}
+      else if(a==='show'){FQS.shown=true;FQS.wrong=null;}
+      render();
+    });
+  });
+}
+function fqCheck(){
+  var inp=document.getElementById('fqin'); if(!inp)return;
+  var raw=inp.value.trim(); if(!raw){FQS.wrong=null;FQS.shown=false;return}
+  var v=normF(raw); if(v[0]!=='=')v='='+v;
+  var q=FQ[FQS.i];
+  var pass=q.ok.some(function(re){return re.test(v)});
+  if(pass){
+    FQS.done[FQS.i]=1; FQS.wrong=null; FQS.shown=false; FQS.hit=true; render();
+    setTimeout(function(){FQS.hit=false;FQS.i=fqNext();render();},1000);
+  } else { FQS.wrong=v; FQS.shown=false; render(); }
+}
+
 /* ========================= TOC ========================= */
 var MODMETA=[
  {n:'01',t:'Welcome to LCG',d:'What this tool is, and what HR covers instead',min:2},
- {n:'02',t:"Scott Webb's School of Tricks",d:'Four habits, the reasoning behind each, and a knowledge check',min:12},
- {n:'03',t:'Hot Keys',d:'108 shortcuts across five apps, with live practice drills',min:25},
- {n:'04',t:'Technology',d:'Your machine, Claude, and Granola',min:10},
- {n:'05',t:'Logging Time in Salesforce',d:'Coming soon',min:0},
- {n:'06',t:'Submitting Expenses',d:'Coming soon',min:0}
+ {n:'02',t:"Scott Webb's School of Tricks",d:'Six habits, the reasoning behind each, and five knowledge checks',min:18},
+ {n:'03',t:'Mastering Excel Formulas',d:'XLOOKUP, SUMIFS, and five formulas to write yourself',min:15},
+ {n:'04',t:'Mastering Hot Keys',d:'108 shortcuts across five apps, with practice drills',min:25},
+ {n:'05',t:'Technology',d:'Your machine, Claude, Granola, and prompt tips',min:12},
+ {n:'06',t:'Logging Time in Salesforce',d:'Coming soon',min:0},
+ {n:'07',t:'Submitting Expenses',d:'Coming soon',min:0},
+ {n:'08',t:'Prepare to be a ping pong champion',d:'The part that keeps you in this job',min:2}
 ];
 function tocHTML(){
   var tot=MODMETA.reduce(function(a,m){return a+m.min},0);
@@ -1314,7 +1723,7 @@ function practiceHTML(cat){
   var items=PK[cat], drill=items.filter(function(i){return i.drill});
   var ref=items.filter(function(i){return !i.drill});
   if(!PS[cat])PS[cat]={i:0,done:{},wrong:null,msg:null,hit:false,mods:{},key:''};
-  return '<div class="eyebrow"><span class="pip"></span> Module 3 &middot; '+cat+'</div>'+
+  return '<div class="eyebrow"><span class="pip"></span> Module 4 &middot; '+cat+'</div>'+
     '<h2 class="hd" style="margin-bottom:6px">'+cat+' Hot Keys</h2>'+
     '<p style="margin-bottom:18px">'+drill.length+' to practise'+(ref.length?' &middot; '+ref.length+' ribbon sequences below':'')+'</p>'+
     '<div class="drill" id="drill-'+cat.replace(/ /g,'')+'"></div>'+
@@ -1400,14 +1809,138 @@ function nextIdx(cat){
   for(var n=1;n<=drill.length;n++){var j=(st.i+n)%drill.length;if(!st.done[j])return j}
   return st.i;
 }
+/* ========================= FORMULA QUIZ ========================= */
+var FGRID=[
+ ['','A','B','C','D','E'],
+ ['1','Invoice','Client','Lender','Amount','Days Past Due'],
+ ['2','INV-2601','Meridian','First Regional','142,500','0'],
+ ['3','INV-2602','Alcove','First Regional','88,400','45'],
+ ['4','INV-2603','Riverton','Sterling','203,100','72'],
+ ['5','INV-2604','Meridian','First Regional','61,250','18'],
+ ['6','INV-2605','Calder','Sterling','97,800','95'],
+ ['7','INV-2606','Riverton','Sterling','54,600','0'],
+ ['8','INV-2607','Meridian','First Regional','119,300','63'],
+ ['9','INV-2608','Alcove','First Regional','76,150','31']
+];
+var FQ=[
+ {task:'Cell G2 contains an invoice number. Return that invoice’s <b>Lender</b>.',
+  hint:'One lookup. The lender sits in column C, the invoice numbers in column A.',
+  ok:[/^=?XLOOKUP\(G2,A2:A9,C2:C9(,.*)?\)$/,/^=?INDEX\(C2:C9,MATCH\(G2,A2:A9,0\)\)$/],
+  ans:'=XLOOKUP(G2,A2:A9,C2:C9)'},
+ {task:'Cell G2 contains a client name. Return the <b>total Amount</b> for that client.',
+  hint:'Sum range first, then the column you test, then what it must equal.',
+  ok:[/^=?SUMIFS\(D2:D9,B2:B9,G2\)$/,/^=?SUMIF\(B2:B9,G2,D2:D9\)$/],
+  ans:'=SUMIFS(D2:D9,B2:B9,G2)'},
+ {task:'Return the <b>total Amount</b> for every invoice more than 60 days past due.',
+  hint:'The operator goes inside quotes as part of the criteria.',
+  ok:[/^=?SUMIFS\(D2:D9,E2:E9,"?>60"?\)$/,/^=?SUMIF\(E2:E9,"?>60"?,D2:D9\)$/],
+  ans:'=SUMIFS(D2:D9,E2:E9,">60")'},
+ {task:'Cell G2 contains an invoice number that may not exist. Return its <b>Amount</b>, or the text <b>Not found</b> if there is no match.',
+  hint:'XLOOKUP has a fourth argument for exactly this. Otherwise wrap it in IFERROR.',
+  ok:[/^=?XLOOKUP\(G2,A2:A9,D2:D9,"NOTFOUND"\)$/,/^=?IFERROR\(XLOOKUP\(G2,A2:A9,D2:D9\),"NOTFOUND"\)$/,
+      /^=?IFERROR\(INDEX\(D2:D9,MATCH\(G2,A2:A9,0\)\),"NOTFOUND"\)$/],
+  ans:'=XLOOKUP(G2,A2:A9,D2:D9,"Not found")'},
+ {task:'Return the <b>total Amount</b> for invoices between 31 and 90 days past due, inclusive.',
+  hint:'Two conditions on the same column. Name the range twice.',
+  ok:[/^=?SUMIFS\(D2:D9,E2:E9,"?>=31"?,E2:E9,"?<=90"?\)$/,/^=?SUMIFS\(D2:D9,E2:E9,"?<=90"?,E2:E9,"?>=31"?\)$/],
+  ans:'=SUMIFS(D2:D9,E2:E9,">=31",E2:E9,"<=90")'}
+];
+var FQS={i:0,done:{},wrong:null,shown:false,hit:false};
+function normF(v){
+  return (v||'').toUpperCase().replace(/\s+/g,'').replace(/\$/g,'')
+    .replace(/[‘’]/g,"'").replace(/[“”]/g,'"')
+    .replace(/"NOTFOUND"/g,'"NOTFOUND"');
+}
+function fgridHTML(){
+  return '<div class="xgrid fq"><table>'+FGRID.map(function(row,ri){
+    return '<tr>'+row.map(function(cell,ci){
+      var head=(ri===0||ci===0);
+      var cls=head?'h':'';
+      if(ri===1&&ci>0)cls+=' fqh';
+      return '<t'+(head?'h':'d')+(cls.trim()?' class="'+cls.trim()+'"':'')+'>'+cell+'</t'+(head?'h':'d')+'>';
+    }).join('')+'</tr>';
+  }).join('')+'</table></div>';
+}
+function formulaQuizHTML(){
+  var doneN=Object.keys(FQS.done).length;
+  var head='<div class="eyebrow"><span class="pip"></span> Module 3 &middot; Knowledge check</div>'+
+    '<h2 class="hd" style="margin-bottom:6px">Write the formula</h2>'+
+    '<p style="margin-bottom:18px">Five scenarios against the grid below. Type the formula you would '+
+    'actually use. Spacing and <code>$</code> signs are ignored.</p>';
+  if(doneN>=FQ.length){
+    return head+'<div class="dcard done"><div class="dbig">&#10003;</div>'+
+      '<div class="dtask">All five formulas correct.</div>'+
+      '<div class="dactions"><button class="dbtn" data-fq="reset">Try again</button></div></div>'+fgridHTML();
+  }
+  var q=FQ[FQS.i];
+  return head+
+    '<div class="dprog"><div class="dbar"><i style="width:'+(doneN/FQ.length*100)+'%"></i></div>'+
+      '<span class="dcount">'+doneN+' / '+FQ.length+'</span></div>'+
+    '<div class="dcard fqcard'+(FQS.wrong?' bad':'')+(FQS.hit?' good':'')+'">'+
+      '<span class="dlbl">Scenario '+(FQS.i+1)+'</span>'+
+      '<div class="dtask fqtask">'+q.task+'</div>'+
+      '<div class="fqin"><span class="fqeq">=</span>'+
+        '<input id="fqin" placeholder="XLOOKUP(G2,A2:A9,C2:C9)" autocomplete="off" spellcheck="false" '+
+        'value="'+(FQS.hit?q.ans.replace(/^=/,'').replace(/"/g,'&quot;'):'')+'"'+(FQS.hit?' disabled':'')+'>'+
+        '<button class="dbtn" data-fq="check">Check</button></div>'+
+      (FQS.hit?'<div class="dmsg" style="color:var(--ok);font-weight:650">&#10003; Correct</div>':'')+
+      (FQS.wrong?'<div class="dmsg bad">Not quite. '+q.hint+'</div>':'')+
+      (FQS.shown?'<div class="dmsg">Answer: <code>'+q.ans.replace(/"/g,'&quot;')+'</code></div>':'')+
+      '<div class="dactions">'+
+        '<button class="dbtn ghost" data-fq="show">Show answer</button>'+
+        '<button class="dbtn ghost" data-fq="skip">Skip</button>'+
+        '<button class="dbtn ghost" data-fq="reset">Reset</button>'+
+      '</div>'+
+    '</div>'+fgridHTML();
+}
+function fqNext(){
+  for(var n=1;n<=FQ.length;n++){var j=(FQS.i+n)%FQ.length;if(!FQS.done[j])return j}
+  return FQS.i;
+}
+function wireFQ(){
+  var box=document.querySelector('.slide .inner');
+  if(!box)return;
+  var inp=document.getElementById('fqin');
+  if(inp){
+    inp.addEventListener('keydown',function(e){
+      e.stopPropagation();
+      if(e.key==='Enter'){e.preventDefault();fqCheck();}
+    });
+    if(!FQS.hit)setTimeout(function(){try{inp.focus()}catch(e){}},60);
+  }
+  box.querySelectorAll('[data-fq]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var a=b.dataset.fq;
+      if(a==='check')return fqCheck();
+      if(a==='reset')FQS={i:0,done:{},wrong:null,shown:false,hit:false};
+      else if(a==='skip'){FQS.wrong=null;FQS.shown=false;FQS.i=fqNext();}
+      else if(a==='show'){FQS.shown=true;FQS.wrong=null;}
+      render();
+    });
+  });
+}
+function fqCheck(){
+  var inp=document.getElementById('fqin'); if(!inp)return;
+  var raw=inp.value.trim(); if(!raw){FQS.wrong=null;FQS.shown=false;return}
+  var v=normF(raw); if(v[0]!=='=')v='='+v;
+  var q=FQ[FQS.i];
+  var pass=q.ok.some(function(re){return re.test(v)});
+  if(pass){
+    FQS.done[FQS.i]=1; FQS.wrong=null; FQS.shown=false; FQS.hit=true; render();
+    setTimeout(function(){FQS.hit=false;FQS.i=fqNext();render();},1000);
+  } else { FQS.wrong=v; FQS.shown=false; render(); }
+}
+
 /* ========================= TOC ========================= */
 var MODMETA=[
  {n:'01',t:'Welcome to LCG',d:'What this tool is, and what HR covers instead',min:2},
- {n:'02',t:"Scott Webb's School of Tricks",d:'Four habits, the reasoning behind each, and a knowledge check',min:12},
- {n:'03',t:'Hot Keys',d:'108 shortcuts across five apps, with live practice drills',min:25},
- {n:'04',t:'Technology',d:'Your machine, Claude, and Granola',min:10},
- {n:'05',t:'Logging Time in Salesforce',d:'Coming soon',min:0},
- {n:'06',t:'Submitting Expenses',d:'Coming soon',min:0}
+ {n:'02',t:"Scott Webb's School of Tricks",d:'Six habits, the reasoning behind each, and five knowledge checks',min:18},
+ {n:'03',t:'Mastering Excel Formulas',d:'XLOOKUP, SUMIFS, and five formulas to write yourself',min:15},
+ {n:'04',t:'Mastering Hot Keys',d:'108 shortcuts across five apps, with practice drills',min:25},
+ {n:'05',t:'Technology',d:'Your machine, Claude, Granola, and prompt tips',min:12},
+ {n:'06',t:'Logging Time in Salesforce',d:'Coming soon',min:0},
+ {n:'07',t:'Submitting Expenses',d:'Coming soon',min:0},
+ {n:'08',t:'Prepare to be a ping pong champion',d:'The part that keeps you in this job',min:2}
 ];
 function tocHTML(){
   var tot=MODMETA.reduce(function(a,m){return a+m.min},0);
@@ -1586,7 +2119,7 @@ function practiceHTML(cat){
   var items=PK[cat], drill=items.filter(function(i){return i.drill});
   var ref=items.filter(function(i){return !i.drill});
   if(!PS[cat])PS[cat]={i:0,done:{},wrong:null,msg:null,hit:false,mods:{},key:''};
-  return '<div class="eyebrow"><span class="pip"></span> Module 3 &middot; '+cat+'</div>'+
+  return '<div class="eyebrow"><span class="pip"></span> Module 4 &middot; '+cat+'</div>'+
     '<h2 class="hd" style="margin-bottom:6px">'+cat+' Hot Keys</h2>'+
     '<p style="margin-bottom:18px">'+drill.length+' to practise'+(ref.length?' &middot; '+ref.length+' ribbon sequences below':'')+'</p>'+
     '<div class="drill" id="drill-'+cat.replace(/ /g,'')+'"></div>'+
@@ -1761,6 +2294,7 @@ function render(){
   if(s.quiz) inner.innerHTML=quizHTML(s.quiz,cur);
   else if(s.toc) inner.innerHTML=tocHTML();
   else if(s.practice) inner.innerHTML=practiceHTML(s.practice);
+  else if(s.formulaquiz) inner.innerHTML=formulaQuizHTML();
   else inner.innerHTML=s.h;
   surf.appendChild(inner); frame.appendChild(surf); d.appendChild(frame);
   stage.innerHTML=''; stage.appendChild(d); stage.scrollTop=0;
@@ -1778,6 +2312,7 @@ function render(){
   document.getElementById('hint').textContent = locked ? 'Pick an answer' : '← → to navigate';
 
   if(s.practice){ drawDrill(s.practice); }
+  if(s.formulaquiz){ wireFQ(); }
   if(s.quiz && answered[cur]===undefined){
     inner.querySelectorAll('.opt').forEach(function(b){
       b.addEventListener('click',function(){
@@ -1816,9 +2351,9 @@ function drawMenu(){
   var el=document.getElementById('menulist'), out='', last='';
   S.forEach(function(s,i){
     if(s.m!==last){ out+='<div class="mgroup">'+s.m+'</div>'; last=s.m }
-    var lbl = s.quiz ? 'Knowledge check' : (s.toc ? 'Course overview' : (s.practice ? s.practice+' hot keys' :
+    var lbl = s.quiz ? (s.quiz.q||'Knowledge check') : (s.formulaquiz ? 'Write the formula' : (s.toc ? 'Course overview' : (s.practice ? s.practice+' hot keys' :
       (s.h.match(/<h1 class="big">([\s\S]*?)<\/h1>/)||s.h.match(/<div class="r">([\s\S]*?)<\/div>/)||s.h.match(/<h2 class="hd">([\s\S]*?)<\/h2>/)||[,'Screen '+(i+1)])[1]
-        .replace(/<[^>]+>/g,' ').replace(/&mdash;/g,'—').replace(/&nbsp;/g,'').replace(/\s+/g,' ').trim() || 'Screen '+(i+1)));
+        .replace(/<[^>]+>/g,' ').replace(/&mdash;/g,'—').replace(/&nbsp;/g,'').replace(/\s+/g,' ').trim() || 'Screen '+(i+1))));
     out+='<button class="mitem'+(i===cur?' cur':'')+(seen[i]?' done':'')+'" data-i="'+i+'">'+
       '<span class="n">'+String(i+1).padStart(2,'0')+'</span><span>'+lbl+'</span>'+
       '<svg class="ck" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></button>';
