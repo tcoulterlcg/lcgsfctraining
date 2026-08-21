@@ -597,6 +597,40 @@ h2.hd{line-height:1.04}
 .lnk{font-family:var(--mono);font-size:13px;color:var(--brand);background:#EEF3FB;
   padding:2px 7px;border-radius:5px;border:1px solid #D8E2F2}
 
+
+/* ---- shortcut builder ---- */
+.bld{display:grid;gap:13px;margin-bottom:16px;text-align:left;max-width:620px;margin-left:auto;margin-right:auto}
+.bldrow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bldlbl{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);font-weight:700;flex:0 0 74px}
+.chiprow{display:flex;gap:7px;flex-wrap:wrap}
+.modchip{font-family:var(--mono);font-size:13px;font-weight:600;padding:9px 17px;border-radius:9px;
+  border:1.5px solid var(--line);background:#fff;color:var(--ink-2);cursor:pointer;transition:all .15s}
+.modchip:hover{border-color:var(--brand)}
+.modchip.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.keyin{flex:1;min-width:150px;padding:9px 13px;border:1.5px solid var(--line);border-radius:9px;
+  font-family:var(--mono);font-size:14px;text-align:center;text-transform:uppercase;background:#fff;color:var(--ink)}
+.keyin:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(53,85,146,.14)}
+.keyin::placeholder{text-transform:none;font-size:12px;color:#9AA5B4}
+.spkeys{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding-top:2px}
+.spkey{font-family:var(--mono);font-size:11.5px;padding:6px 11px;border-radius:7px;border:1px solid var(--line);
+  background:#FAFBFE;color:var(--ink-3);cursor:pointer;transition:all .15s}
+.spkey:hover{border-color:var(--brand);color:var(--brand)}
+.spkey.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.bldout{display:flex;align-items:center;justify-content:center;gap:6px;min-height:44px;
+  border:1.5px dashed #C6D0E4;border-radius:11px;padding:9px 15px;background:#FAFBFE}
+.dmsg{font-size:13.5px;color:var(--ink-3);margin-bottom:14px;display:flex;align-items:center;
+  justify-content:center;gap:6px;flex-wrap:wrap}
+.dmsg.bad{color:#B04A34}
+.dmsg kbd{margin:0 1px}
+.xgrid td.fx{background:#DCE9F8;outline:2px solid var(--brand);outline-offset:-2px;
+  animation:fxpop .5s cubic-bezier(.16,1,.3,1)}
+@keyframes fxpop{from{background:#B9D2F0;transform:scale(.97)}to{background:#DCE9F8;transform:none}}
+.fxnote{margin-top:10px;font-size:13.5px;color:var(--ok);font-weight:650;text-align:center}
+@media(max-width:900px){
+  .bldlbl{flex:0 0 100%}
+  .keyin{min-width:0}
+}
+
 </style>
 </head>
 <body>
@@ -668,9 +702,9 @@ var PK={
 {k:['Alt','H','O','I'],c:'',d:'AutoFit column width',drill:0,seq:1},
 {k:['Alt','W','F','F'],c:'',d:'Freeze panes at the cursor',drill:0,seq:1},
 {k:['Alt','A','G','G'],c:'',d:'Group the selected rows or columns',drill:0,seq:1},
-{k:['Ctrl','S'],c:'',d:'Save the workbook',drill:0},
-{k:['Ctrl','N'],c:'',d:'New workbook',drill:0},
-{k:['Ctrl','W'],c:'',d:'Close the workbook',drill:0}
+{k:['Ctrl','S'],c:'ctrl+s',d:'Save the workbook',drill:1},
+{k:['Ctrl','N'],c:'ctrl+n',d:'New workbook',drill:1},
+{k:['Ctrl','W'],c:'ctrl+w',d:'Close the workbook',drill:1}
 ],
 'Outlook':[
 {k:['Ctrl','R'],c:'ctrl+r',d:'Reply to the selected message',drill:1},
@@ -694,7 +728,7 @@ var PK={
 {k:['Ctrl','Shift','B'],c:'ctrl+shift+b',d:'Open the Address Book',drill:1},
 {k:['Ctrl','K'],c:'ctrl+k',d:'Check names / resolve recipients',drill:1},
 {k:['F9'],c:'f9',d:'Send and receive all folders',drill:1},
-{k:['Ctrl','N'],c:'',d:'New item in the current view',drill:0}
+{k:['Ctrl','N'],c:'ctrl+n',d:'New item in the current view',drill:1}
 ],
 'Teams':[
 {k:['Ctrl','E'],c:'ctrl+e',d:'Jump to the search bar',drill:1},
@@ -713,7 +747,7 @@ var PK={
 {k:['Ctrl','3'],c:'ctrl+3',d:'Go to Teams',drill:1},
 {k:['Ctrl','4'],c:'ctrl+4',d:'Go to Calendar',drill:1},
 {k:['Ctrl','5'],c:'ctrl+5',d:'Go to Calls',drill:1},
-{k:['Ctrl','N'],c:'',d:'Start a new chat',drill:0}
+{k:['Ctrl','N'],c:'ctrl+n',d:'Start a new chat',drill:1}
 ],
 'File Explorer':[
 {k:['F2'],c:'f2',d:'Rename the selected file',drill:1},
@@ -729,27 +763,27 @@ var PK={
 {k:['Ctrl','Shift','A'],c:'ctrl+shift+a',d:'Invert the current selection',drill:1},
 {k:['F5'],c:'f5',d:'Refresh the folder view',drill:1},
 {k:['Shift','Delete'],c:'shift+del',d:'Delete permanently, skipping the Recycle Bin',drill:1},
-{k:['Ctrl','Shift','N'],c:'',d:'Create a new folder',drill:0},
-{k:['Ctrl','N'],c:'',d:'Open a second Explorer window',drill:0},
-{k:['Ctrl','W'],c:'',d:'Close the Explorer window',drill:0},
-{k:['Ctrl','L'],c:'',d:'Focus the address bar',drill:0}
+{k:['Ctrl','Shift','N'],c:'ctrl+shift+n',d:'Create a new folder',drill:1},
+{k:['Ctrl','N'],c:'ctrl+n',d:'Open a second Explorer window',drill:1},
+{k:['Ctrl','W'],c:'ctrl+w',d:'Close the Explorer window',drill:1},
+{k:['Ctrl','L'],c:'ctrl+l',d:'Focus the address bar',drill:1}
 ],
 'Windows':[
-{k:['Win','E'],c:'',d:'Open File Explorer',drill:0},
-{k:['Win','L'],c:'',d:'Lock your machine — do this every time you step away',drill:0},
-{k:['Win','D'],c:'',d:'Show the desktop',drill:0},
-{k:['Win','V'],c:'',d:'Open clipboard history — the last 25 things you copied',drill:0},
-{k:['Win','Shift','S'],c:'',d:'Screen clipping to the clipboard',drill:0},
-{k:['Win','←'],c:'',d:'Snap the window to the left half',drill:0},
-{k:['Win','→'],c:'',d:'Snap the window to the right half',drill:0},
-{k:['Win','↑'],c:'',d:'Maximise the window',drill:0},
-{k:['Win','Tab'],c:'',d:'Task view / virtual desktops',drill:0},
-{k:['Win','Ctrl','→'],c:'',d:'Move to the next virtual desktop',drill:0},
-{k:['Alt','Tab'],c:'',d:'Switch between open windows',drill:0},
-{k:['Win','.'],c:'',d:'Emoji and symbol picker',drill:0},
-{k:['Win','1'],c:'',d:'Launch the first app pinned to the taskbar',drill:0},
-{k:['Win','X'],c:'',d:'Power user menu',drill:0},
-{k:['Ctrl','Shift','Esc'],c:'',d:'Open Task Manager directly',drill:0}
+{k:['Win','E'],c:'win+e',d:'Open File Explorer',drill:1},
+{k:['Win','L'],c:'win+l',d:'Lock your machine &mdash; do this every time you step away',drill:1},
+{k:['Win','D'],c:'win+d',d:'Show the desktop',drill:1},
+{k:['Win','V'],c:'win+v',d:'Open clipboard history &mdash; the last 25 things you copied',drill:1},
+{k:['Win','Shift','S'],c:'win+shift+s',d:'Screen clipping to the clipboard',drill:1},
+{k:['Win','←'],c:'win+left',d:'Snap the window to the left half',drill:1},
+{k:['Win','→'],c:'win+right',d:'Snap the window to the right half',drill:1},
+{k:['Win','↑'],c:'win+up',d:'Maximise the window',drill:1},
+{k:['Win','Tab'],c:'win+tab',d:'Task view / virtual desktops',drill:1},
+{k:['Win','Ctrl','→'],c:'ctrl+win+right',d:'Move to the next virtual desktop',drill:1},
+{k:['Alt','Tab'],c:'alt+tab',d:'Switch between open windows',drill:1},
+{k:['Win','.'],c:'win+.',d:'Emoji and symbol picker',drill:1},
+{k:['Win','1'],c:'win+1',d:'Launch the first app pinned to the taskbar',drill:1},
+{k:['Win','X'],c:'win+x',d:'Power user menu',drill:1},
+{k:['Ctrl','Shift','Esc'],c:'ctrl+shift+esc',d:'Open Task Manager directly',drill:1}
 ]
 };
 
@@ -872,8 +906,7 @@ opts:[
 {m:'Hot Keys',dark:1,h:`
 <div class="eyebrow"><span class="pip"></span> Module 3</div>
 <h1 class="big">Hot <em>Keys</em></h1>
-<p class="lede">Five categories, 108 shortcuts. Each one comes with a live drill &mdash; press the actual keys
-and the page checks you.</p>`},
+<p class="lede">Five categories, 108 shortcuts. Build each one from memory and the page checks you.</p>`},
 
 /* 12 HOW THE DRILL WORKS */
 {m:'Hot Keys',h:`
@@ -881,13 +914,14 @@ and the page checks you.</p>`},
 <h2 class="hd">How the drill works</h2>
 <div class="cards c3" style="margin:20px 0 22px">
 <div class="card"><span class="tag">01</span><h4>Read the task</h4><p>You get the action, not the answer. "Fill down from the cell above."</p></div>
-<div class="card"><span class="tag">02</span><h4>Press the keys</h4><p>Actually press them. The page captures the real combination off your keyboard.</p></div>
-<div class="card"><span class="tag">03</span><h4>Advance on correct</h4><p>Get it right and it moves on. Get it wrong and it tells you what you pressed. Reset any time.</p></div>
+<div class="card"><span class="tag">02</span><h4>Build the combination</h4><p>Click the modifiers, then type or pick the key. Hit Check.</p></div>
+<div class="card"><span class="tag">03</span><h4>Advance on correct</h4><p>Right answers move you on and show the effect on the data. Wrong ones tell you what you built. Reset any time.</p></div>
 </div>
-<div class="callout"><div class="ic">!</div><div><h4>A few are reference-only</h4>
-<p>Windows key combinations, <kbd>Ctrl</kbd>+<kbd>W</kbd>, <kbd>Ctrl</kbd>+<kbd>N</kbd> and the
-<kbd>Alt</kbd> ribbon sequences get intercepted by Windows or the browser before this page can see them.
-Those are marked <em class="i">reference</em> and excluded from the drill &mdash; learn them, just not here.</p></div></div>`},
+<div class="callout"><div class="ic">!</div><div><h4>Why you build it instead of pressing it</h4>
+<p>Your browser owns most of these keystrokes. Press <kbd>Ctrl</kbd>+<kbd>R</kbd> in a web page and it
+reloads; <kbd>Ctrl</kbd>+<kbd>1</kbd> switches tab; <kbd>Win</kbd>+<kbd>L</kbd> locks Windows. No web page
+can intercept them. So you assemble the shortcut here to prove you know it, then use the real keystroke in
+Excel or Outlook where it belongs.</p></div></div>`},
 
 /* 13-17 PRACTICE */
 {m:'Hot Keys',wide:1,practice:'Excel'},
@@ -1162,15 +1196,25 @@ var GRID=[
  ['4','Riverton','203,100','198,600','211,450'],
  ['5','Total','434,000','428,550','449,650']
 ];
-function gridHTML(){
-  return '<div class="xgrid"><table>'+GRID.map(function(row,ri){
+function gridHTML(fx){
+  var html='<div class="xgrid"><table>'+GRID.map(function(row,ri){
     return '<tr>'+row.map(function(cell,ci){
       var head=(ri===0||ci===0);
       var cls=head?'h':(ri===5?'tot':'');
-      if(ri===2&&ci===2)cls+=' sel';
-      return '<t'+(head?'h':'d')+(cls?' class="'+cls.trim()+'"':'')+'>'+cell+'</t'+(head?'h':'d')+'>';
+      if(ri===2&&ci===2&&!fx)cls+=' sel';
+      if(fx){
+        var hit=false;
+        if(fx.all&&ri>0&&ci>0)hit=true;
+        if(fx.col&&ci===fx.col&&ri>0)hit=true;
+        if(fx.row&&ri===fx.row&&ci>0)hit=true;
+        if(fx.cells)fx.cells.forEach(function(c){if(c[0]===ri&&c[1]===ci)hit=true});
+        if(hit)cls+=' fx';
+      }
+      return '<t'+(head?'h':'d')+(cls.trim()?' class="'+cls.trim()+'"':'')+'>'+cell+'</t'+(head?'h':'d')+'>';
     }).join('')+'</tr>';
   }).join('')+'</table></div>';
+  if(fx&&fx.note)html+='<div class="fxnote">&#10003; '+fx.note+'</div>';
+  return html;
 }
 var CTXART={
  'Outlook':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Inbox &mdash; tcoulter@lcgadvisors.com</span></div><div class="mockbody"><div class="mrow sel"><b>Meridian Mfg</b><span>RE: August borrowing base</span><i>2:14 PM</i></div><div class="mrow"><b>First Regional</b><span>Forbearance draft for review</span><i>1:02 PM</i></div><div class="mrow"><b>S. Webb</b><span>13-week model &mdash; comments</span><i>11:48 AM</i></div><div class="mrow"><b>Alcove Holdings</b><span>Data room access</span><i>9:30 AM</i></div></div></div>',
@@ -1179,19 +1223,105 @@ var CTXART={
  'Windows':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Desktop</span></div><div class="mockbody" style="display:flex;gap:10px;flex-wrap:wrap;padding:18px"><span class="tile">Excel</span><span class="tile">Outlook</span><span class="tile">Teams</span><span class="tile">Explorer</span><span class="tile">Chrome</span></div></div>'
 };
 
+/* ========================= SHORTCUT BUILDER ========================= */
+var MODS=[{id:'ctrl',lbl:'Ctrl'},{id:'alt',lbl:'Alt'},{id:'shift',lbl:'Shift'},{id:'win',lbl:'Win'}];
+var SPECIAL=[
+ {v:'enter',l:'Enter'},{v:'space',l:'Space'},{v:'tab',l:'Tab'},{v:'esc',l:'Esc'},
+ {v:'up',l:'↑'},{v:'down',l:'↓'},{v:'left',l:'←'},{v:'right',l:'→'},
+ {v:'home',l:'Home'},{v:'end',l:'End'},{v:'pgup',l:'PgUp'},{v:'pgdn',l:'PgDn'},
+ {v:'del',l:'Delete'},
+ {v:'f2',l:'F2'},{v:'f3',l:'F3'},{v:'f4',l:'F4'},{v:'f5',l:'F5'},{v:'f9',l:'F9'},{v:'f11',l:'F11'}
+];
+function normKey(x){
+  x=(x||'').trim().toLowerCase();
+  var alias={escape:'esc',delete:'del',pageup:'pgup',pagedown:'pgdn',
+    arrowup:'up',arrowdown:'down',arrowleft:'left',arrowright:'right',' ':'space',
+    ret:'enter',return:'enter'};
+  return alias[x]||x;
+}
+function sortCombo(c){
+  var parts=c.split('+'),order={ctrl:0,alt:1,shift:2,win:3,meta:3},mods=[],key='';
+  parts.forEach(function(p){ if(p in order)mods.push(p==='meta'?'win':p); else key=p; });
+  mods.sort(function(a,b){return order[a]-order[b]});
+  return mods.concat(key?[key]:[]).join('+');
+}
+function builderHTML(cat){
+  var st=PS[cat];
+  var chips=MODS.map(function(m){
+    return '<button class="modchip'+(st.mods[m.id]?' on':'')+'" data-mod="'+m.id+'">'+m.lbl+'</button>';
+  }).join('');
+  var specials=SPECIAL.map(function(k){
+    return '<button class="spkey'+(st.key===k.v?' on':'')+'" data-key="'+k.v+'">'+k.l+'</button>';
+  }).join('');
+  var shown=[];
+  MODS.forEach(function(m){if(st.mods[m.id])shown.push(m.lbl)});
+  if(st.key)shown.push(prettyKey(st.key));
+  return '<div class="bld">'+
+    '<div class="bldrow"><span class="bldlbl">Modifiers</span><div class="chiprow">'+chips+'</div></div>'+
+    '<div class="bldrow"><span class="bldlbl">Key</span>'+
+      '<input class="keyin" id="keyin" placeholder="type a letter, digit or symbol" '+
+      'value="'+(st.key&&st.key.length===1?st.key.toUpperCase():'')+'" maxlength="1" autocomplete="off" spellcheck="false">'+
+      '<button class="dbtn" data-act="check">Check</button></div>'+
+    '<div class="spkeys">'+specials+'</div>'+
+    '<div class="bldout">'+(shown.length?shown.map(function(x){return '<kbd>'+x+'</kbd>'}).join('<span class="plus">+</span>')
+      :'<span class="dhint">build the shortcut above</span>')+'</div>'+
+  '</div>';
+}
+function prettyKey(k){
+  var m={up:'↑',down:'↓',left:'←',right:'→',enter:'Enter',space:'Space',tab:'Tab',esc:'Esc',
+    del:'Delete',pgup:'PgUp',pgdn:'PgDn',home:'Home',end:'End'};
+  if(m[k])return m[k];
+  if(/^f[0-9]{1,2}$/.test(k))return k.toUpperCase();
+  return k.length===1?k.toUpperCase():k;
+}
+function builtCombo(cat){
+  var st=PS[cat],parts=[];
+  MODS.forEach(function(m){if(st.mods[m.id])parts.push(m.id)});
+  if(st.key)parts.push(st.key);
+  return sortCombo(parts.join('+'));
+}
+function checkBuilt(cat){
+  var st=PS[cat];
+  var drill=PK[cat].filter(function(i){return i.drill});
+  var it=drill[st.i];
+  if(!st.key){ st.msg='Pick the key as well as the modifiers.'; drawDrill(cat); return; }
+  var got=builtCombo(cat), want=sortCombo(it.c);
+  if(got===want){
+    st.done[st.i]=1; st.wrong=null; st.msg=null; st.hit=true;
+    drawDrill(cat);
+    setTimeout(function(){ st.hit=false; st.mods={}; st.key=''; st.i=nextIdx(cat); drawDrill(cat); },900);
+  } else {
+    st.wrong=got; st.msg=null; drawDrill(cat);
+  }
+}
+/* grid effect on a correct Excel answer */
+var GRIDFX={
+ 'ctrl+d':{cells:[[3,2]],note:'B3 filled down from B2'},
+ 'ctrl+r':{cells:[[2,3]],note:'C2 filled right from B2'},
+ 'alt+=':{cells:[[5,2]],note:'SUM(B2:B4) written into B5'},
+ 'ctrl+space':{col:2,note:'Column B selected'},
+ 'shift+space':{row:2,note:'Row 2 selected'},
+ 'ctrl+down':{cells:[[5,2]],note:'Jumped to the bottom of the data'},
+ 'ctrl+shift+down':{cells:[[2,2],[3,2],[4,2],[5,2]],note:'Selected down to the edge'},
+ 'ctrl+home':{cells:[[1,1]],note:'Back to A1'},
+ 'ctrl+end':{cells:[[5,4]],note:'Last used cell'},
+ 'ctrl+shift+4':{col:2,note:'Column B formatted as currency'},
+ 'ctrl+a':{all:1,note:'Whole data region selected'}
+};
+
 var PS={};  /* per-category drill state */
 function practiceHTML(cat){
   var items=PK[cat], drill=items.filter(function(i){return i.drill});
   var ref=items.filter(function(i){return !i.drill});
-  if(!PS[cat])PS[cat]={i:0,done:{},wrong:null,shown:false,order:drill.map(function(_,n){return n})};
+  if(!PS[cat])PS[cat]={i:0,done:{},wrong:null,msg:null,hit:false,mods:{},key:''};
   return '<div class="eyebrow"><span class="pip"></span> Module 3 &middot; '+cat+'</div>'+
     '<h2 class="hd" style="margin-bottom:6px">'+cat+' Hot Keys</h2>'+
-    '<p style="margin-bottom:20px">'+drill.length+' drills'+(ref.length?' &middot; '+ref.length+' reference-only':'')+'</p>'+
+    '<p style="margin-bottom:18px">'+drill.length+' to practise'+(ref.length?' &middot; '+ref.length+' ribbon sequences below':'')+'</p>'+
     '<div class="drill" id="drill-'+cat.replace(/ /g,'')+'"></div>'+
-    (ref.length?'<div class="refwrap"><div class="reflbl">Reference only &mdash; Windows or the browser '+
-      'intercepts these before the page sees them</div><div class="refgrid">'+ref.map(function(r){
-        return '<div class="hk'+(r.seq?' seq':'')+'"><div class="keys">'+keyHTML(r.k)+'</div>'+
-               '<div class="d">'+r.d+(r.seq?' <span class="seqtag">press in sequence</span>':'')+'</div></div>';
+    (ref.length?'<div class="refwrap"><div class="reflbl">Ribbon sequences &mdash; press these keys one after '+
+      'another, not together</div><div class="refgrid">'+ref.map(function(r){
+        return '<div class="hk seq"><div class="keys">'+keyHTML(r.k)+'</div>'+
+               '<div class="d">'+r.d+'</div></div>';
       }).join('')+'</div></div>':'');
 }
 function drawDrill(cat){
@@ -1199,41 +1329,340 @@ function drawDrill(cat){
   if(!box)return;
   var drill=PK[cat].filter(function(i){return i.drill});
   var st=PS[cat];
-  if(!drill.length){
-    box.innerHTML='<div class="dcard"><div class="dtask">Every shortcut in this category is handled by Windows '+
-      'itself, so the page can\'t capture them. Use the reference list below.</div></div>'+
-      (CTXART[cat]||'');
-    return;
-  }
   var doneN=Object.keys(st.done).length;
   if(doneN>=drill.length){
     box.innerHTML='<div class="dcard done"><div class="dbig">&#10003;</div>'+
-      '<div class="dtask">All '+drill.length+' '+cat+' drills complete.</div>'+
-      '<button class="dbtn" data-act="reset">Practice again</button></div>';
+      '<div class="dtask">All '+drill.length+' '+cat+' shortcuts complete.</div>'+
+      '<div class="dactions"><button class="dbtn" data-act="reset">Practise again</button></div></div>';
   } else {
     var it=drill[st.i];
     box.innerHTML=
       '<div class="dprog"><div class="dbar"><i style="width:'+(doneN/drill.length*100)+'%"></i></div>'+
         '<span class="dcount">'+doneN+' / '+drill.length+'</span></div>'+
-      '<div class="dcard'+(st.wrong?' bad':'')+(st.shown?' shown':'')+'">'+
-        '<span class="dlbl">Press the shortcut for</span>'+
+      '<div class="dcard'+(st.wrong?' bad':'')+(st.hit?' good':'')+'">'+
+        '<span class="dlbl">Build the shortcut for</span>'+
         '<div class="dtask">'+it.d.replace(/<[^>]+>/g,'')+'</div>'+
-        (st.shown?'<div class="dans">'+keyHTML(it.k)+'</div>':
-          '<div class="dslot">'+(st.wrong?prettyCombo(st.wrong)+'<span class="x">&#10007;</span>':
-            '<span class="dhint">waiting for keys&hellip;</span>')+'</div>')+
+        (st.hit
+          ? '<div class="dslot" style="border-style:solid">'+keyHTML(it.k)+'<span class="ok">&#10003;</span></div>'
+          : builderHTML(cat))+
+        (st.wrong?'<div class="dmsg bad">Not this one &mdash; you built '+prettyCombo(st.wrong)+'</div>':'')+
+        (st.msg?'<div class="dmsg">'+st.msg+'</div>':'')+
         '<div class="dactions">'+
-          '<button class="dbtn ghost" data-act="show">'+(st.shown?'Next':'Show answer')+'</button>'+
+          '<button class="dbtn ghost" data-act="show">Show answer</button>'+
           '<button class="dbtn ghost" data-act="skip">Skip</button>'+
           '<button class="dbtn ghost" data-act="reset">Reset</button>'+
         '</div>'+
-      '</div>'+(cat==='Excel'?gridHTML():(CTXART[cat]||''));
+      '</div>'+
+      (cat==='Excel'?gridHTML(st.hit?GRIDFX[sortCombo(it.c)]:null):(CTXART[cat]||''));
+  }
+  box.querySelectorAll('.modchip').forEach(function(b){
+    b.addEventListener('click',function(){
+      st.mods[b.dataset.mod]=!st.mods[b.dataset.mod]; st.wrong=null; st.msg=null; drawDrill(cat);
+    });
+  });
+  box.querySelectorAll('.spkey').forEach(function(b){
+    b.addEventListener('click',function(){
+      st.key=(st.key===b.dataset.key)?'':b.dataset.key; st.wrong=null; st.msg=null; drawDrill(cat);
+    });
+  });
+  var inp=box.querySelector('#keyin');
+  if(inp){
+    inp.addEventListener('input',function(){
+      var v=normKey(inp.value); if(v){st.key=v;} else {st.key='';}
+      st.wrong=null; st.msg=null;
+      box.querySelectorAll('.spkey').forEach(function(x){x.classList.remove('on')});
+      var out=box.querySelector('.bldout'); if(out){
+        var shown=[]; MODS.forEach(function(m){if(st.mods[m.id])shown.push(m.lbl)});
+        if(st.key)shown.push(prettyKey(st.key));
+        out.innerHTML=shown.length?shown.map(function(x){return '<kbd>'+x+'</kbd>'}).join('<span class="plus">+</span>')
+          :'<span class="dhint">build the shortcut above</span>';
+      }
+    });
+    inp.addEventListener('keydown',function(e){
+      e.stopPropagation();
+      if(e.key==='Enter'){e.preventDefault();checkBuilt(cat);}
+    });
   }
   box.querySelectorAll('.dbtn').forEach(function(b){
     b.addEventListener('click',function(){
       var a=b.dataset.act;
-      if(a==='reset'){PS[cat]={i:0,done:{},wrong:null,shown:false};}
-      else if(a==='skip'){st.wrong=null;st.shown=false;st.i=nextIdx(cat);}
-      else if(a==='show'){ if(st.shown){st.shown=false;st.wrong=null;st.i=nextIdx(cat);} else {st.shown=true;st.wrong=null;} }
+      if(a==='check'){checkBuilt(cat);return}
+      if(a==='reset'){PS[cat]={i:0,done:{},wrong:null,msg:null,hit:false,mods:{},key:''};}
+      else if(a==='skip'){st.wrong=null;st.msg=null;st.mods={};st.key='';st.i=nextIdx(cat);}
+      else if(a==='show'){var d=PK[cat].filter(function(i){return i.drill})[st.i];
+        st.msg='It is '+keyHTML(d.k)+'. Build it to move on.'; st.wrong=null;}
+      drawDrill(cat);
+    });
+  });
+}
+function nextIdx(cat){
+  var drill=PK[cat].filter(function(i){return i.drill}),st=PS[cat];
+  for(var n=1;n<=drill.length;n++){var j=(st.i+n)%drill.length;if(!st.done[j])return j}
+  return st.i;
+}
+/* ========================= TOC ========================= */
+var MODMETA=[
+ {n:'01',t:'Welcome to LCG',d:'What this tool is, and what HR covers instead',min:2},
+ {n:'02',t:"Scott Webb's School of Tricks",d:'Four habits, the reasoning behind each, and a knowledge check',min:12},
+ {n:'03',t:'Hot Keys',d:'108 shortcuts across five apps, with live practice drills',min:25},
+ {n:'04',t:'Technology',d:'Your machine, Claude, and Granola',min:10},
+ {n:'05',t:'Logging Time in Salesforce',d:'Coming soon',min:0},
+ {n:'06',t:'Submitting Expenses',d:'Coming soon',min:0}
+];
+function tocHTML(){
+  var tot=MODMETA.reduce(function(a,m){return a+m.min},0);
+  return '<div class="eyebrow"><span class="pip"></span> Course overview</div>'+
+  '<h2 class="hd" style="margin-bottom:8px">What you\'re about to cover</h2>'+
+  '<p style="margin-bottom:24px">About <strong>'+tot+' minutes</strong> end to end. Your place is tracked as '+
+  'you go and the menu at top right jumps anywhere.</p>'+
+  '<div class="toc">'+MODMETA.map(function(m){
+    return '<div class="tocrow'+(m.min?'':' soon')+'">'+
+      '<span class="tn">'+m.n+'</span>'+
+      '<span class="tt"><b>'+m.t+'</b><span>'+m.d+'</span></span>'+
+      '<span class="tm">'+(m.min?m.min+' min':'TBD')+'</span></div>';
+  }).join('')+'</div>';
+}
+
+/* ========================= PRACTICE DRILL ========================= */
+var CODEMAP={Backquote:'`',Minus:'-',Equal:'=',BracketLeft:'[',BracketRight:']',Backslash:'\\',
+ Semicolon:';',Quote:"'",Comma:',',Period:'.',Slash:'/',Space:'space',Enter:'enter',Tab:'tab',
+ Escape:'esc',Backspace:'backspace',Delete:'del',Home:'home',End:'end',PageUp:'pgup',PageDown:'pgdn',
+ ArrowUp:'up',ArrowDown:'down',ArrowLeft:'left',ArrowRight:'right'};
+function evCombo(e){
+  var p=[];
+  if(e.ctrlKey)p.push('ctrl');
+  if(e.altKey)p.push('alt');
+  if(e.shiftKey)p.push('shift');
+  if(e.metaKey)p.push('meta');
+  var c=e.code,k='';
+  if(/^Key[A-Z]$/.test(c))k=c.slice(3).toLowerCase();
+  else if(/^Digit[0-9]$/.test(c))k=c.slice(5);
+  else if(/^Numpad[0-9]$/.test(c))k=c.slice(6);
+  else if(/^F[0-9]{1,2}$/.test(c))k=c.toLowerCase();
+  else if(CODEMAP[c])k=CODEMAP[c];
+  else if(/^(Control|Alt|Shift|Meta)(Left|Right)$/.test(c))return null;
+  else k=(e.key||'').toLowerCase();
+  if(!k)return null;
+  p.push(k);
+  return p.join('+');
+}
+function prettyCombo(c){
+  return c.split('+').map(function(x){
+    var m={ctrl:'Ctrl',alt:'Alt',shift:'Shift',meta:'Win',up:'↑',down:'↓',left:'←',right:'→',
+      enter:'Enter',space:'Space',tab:'Tab',esc:'Esc',del:'Delete',pgup:'PgUp',pgdn:'PgDn',
+      home:'Home',end:'End',backspace:'Backspace'};
+    if(m[x])return m[x];
+    if(/^f[0-9]{1,2}$/.test(x))return x.toUpperCase();
+    return x.length===1?x.toUpperCase():x;
+  }).map(function(x){return '<kbd>'+x+'</kbd>'}).join('<span class="plus">+</span>');
+}
+function keyHTML(arr){
+  return arr.map(function(k){return '<kbd>'+k+'</kbd>'}).join('<span class="plus">+</span>');
+}
+
+var GRID=[
+ ['','A','B','C','D'],
+ ['1','Client','Q1','Q2','Q3'],
+ ['2','Meridian','142,500','138,200','151,900'],
+ ['3','Alcove','88,400','91,750','86,300'],
+ ['4','Riverton','203,100','198,600','211,450'],
+ ['5','Total','434,000','428,550','449,650']
+];
+function gridHTML(fx){
+  var html='<div class="xgrid"><table>'+GRID.map(function(row,ri){
+    return '<tr>'+row.map(function(cell,ci){
+      var head=(ri===0||ci===0);
+      var cls=head?'h':(ri===5?'tot':'');
+      if(ri===2&&ci===2&&!fx)cls+=' sel';
+      if(fx){
+        var hit=false;
+        if(fx.all&&ri>0&&ci>0)hit=true;
+        if(fx.col&&ci===fx.col&&ri>0)hit=true;
+        if(fx.row&&ri===fx.row&&ci>0)hit=true;
+        if(fx.cells)fx.cells.forEach(function(c){if(c[0]===ri&&c[1]===ci)hit=true});
+        if(hit)cls+=' fx';
+      }
+      return '<t'+(head?'h':'d')+(cls.trim()?' class="'+cls.trim()+'"':'')+'>'+cell+'</t'+(head?'h':'d')+'>';
+    }).join('')+'</tr>';
+  }).join('')+'</table></div>';
+  if(fx&&fx.note)html+='<div class="fxnote">&#10003; '+fx.note+'</div>';
+  return html;
+}
+var CTXART={
+ 'Outlook':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Inbox &mdash; tcoulter@lcgadvisors.com</span></div><div class="mockbody"><div class="mrow sel"><b>Meridian Mfg</b><span>RE: August borrowing base</span><i>2:14 PM</i></div><div class="mrow"><b>First Regional</b><span>Forbearance draft for review</span><i>1:02 PM</i></div><div class="mrow"><b>S. Webb</b><span>13-week model &mdash; comments</span><i>11:48 AM</i></div><div class="mrow"><b>Alcove Holdings</b><span>Data room access</span><i>9:30 AM</i></div></div></div>',
+ 'Teams':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Teams &mdash; SFC Practice</span></div><div class="mockbody"><div class="mrow sel"><b>Meridian &mdash; Weekly</b><span>Call in progress &middot; 4 participants</span><i>live</i></div><div class="mrow"><b>SFC Practice</b><span>General channel</span><i>3 new</i></div><div class="mrow"><b>S. Webb</b><span>Can you send the latest?</span><i>10:22 AM</i></div></div></div>',
+ 'File Explorer':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Meridian Mfg &gt; 2026 &gt; Fieldwork</span></div><div class="mockbody"><div class="mrow sel"><b>&#128193; AR Aging</b><span>File folder</span><i>8/18/26</i></div><div class="mrow"><b>&#128196; 13-Week CF v4.xlsx</b><span>Excel Worksheet</span><i>8/19/26</i></div><div class="mrow"><b>&#128196; Borrowing Base.xlsx</b><span>Excel Worksheet</span><i>8/17/26</i></div><div class="mrow"><b>&#128196; Draft Report.docx</b><span>Word Document</span><i>8/20/26</i></div></div></div>',
+ 'Windows':'<div class="mockwin"><div class="mockbar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mt">Desktop</span></div><div class="mockbody" style="display:flex;gap:10px;flex-wrap:wrap;padding:18px"><span class="tile">Excel</span><span class="tile">Outlook</span><span class="tile">Teams</span><span class="tile">Explorer</span><span class="tile">Chrome</span></div></div>'
+};
+
+/* ========================= SHORTCUT BUILDER ========================= */
+var MODS=[{id:'ctrl',lbl:'Ctrl'},{id:'alt',lbl:'Alt'},{id:'shift',lbl:'Shift'},{id:'win',lbl:'Win'}];
+var SPECIAL=[
+ {v:'enter',l:'Enter'},{v:'space',l:'Space'},{v:'tab',l:'Tab'},{v:'esc',l:'Esc'},
+ {v:'up',l:'↑'},{v:'down',l:'↓'},{v:'left',l:'←'},{v:'right',l:'→'},
+ {v:'home',l:'Home'},{v:'end',l:'End'},{v:'pgup',l:'PgUp'},{v:'pgdn',l:'PgDn'},
+ {v:'del',l:'Delete'},
+ {v:'f2',l:'F2'},{v:'f3',l:'F3'},{v:'f4',l:'F4'},{v:'f5',l:'F5'},{v:'f9',l:'F9'},{v:'f11',l:'F11'}
+];
+function normKey(x){
+  x=(x||'').trim().toLowerCase();
+  var alias={escape:'esc',delete:'del',pageup:'pgup',pagedown:'pgdn',
+    arrowup:'up',arrowdown:'down',arrowleft:'left',arrowright:'right',' ':'space',
+    ret:'enter',return:'enter'};
+  return alias[x]||x;
+}
+function sortCombo(c){
+  var parts=c.split('+'),order={ctrl:0,alt:1,shift:2,win:3,meta:3},mods=[],key='';
+  parts.forEach(function(p){ if(p in order)mods.push(p==='meta'?'win':p); else key=p; });
+  mods.sort(function(a,b){return order[a]-order[b]});
+  return mods.concat(key?[key]:[]).join('+');
+}
+function builderHTML(cat){
+  var st=PS[cat];
+  var chips=MODS.map(function(m){
+    return '<button class="modchip'+(st.mods[m.id]?' on':'')+'" data-mod="'+m.id+'">'+m.lbl+'</button>';
+  }).join('');
+  var specials=SPECIAL.map(function(k){
+    return '<button class="spkey'+(st.key===k.v?' on':'')+'" data-key="'+k.v+'">'+k.l+'</button>';
+  }).join('');
+  var shown=[];
+  MODS.forEach(function(m){if(st.mods[m.id])shown.push(m.lbl)});
+  if(st.key)shown.push(prettyKey(st.key));
+  return '<div class="bld">'+
+    '<div class="bldrow"><span class="bldlbl">Modifiers</span><div class="chiprow">'+chips+'</div></div>'+
+    '<div class="bldrow"><span class="bldlbl">Key</span>'+
+      '<input class="keyin" id="keyin" placeholder="type a letter, digit or symbol" '+
+      'value="'+(st.key&&st.key.length===1?st.key.toUpperCase():'')+'" maxlength="1" autocomplete="off" spellcheck="false">'+
+      '<button class="dbtn" data-act="check">Check</button></div>'+
+    '<div class="spkeys">'+specials+'</div>'+
+    '<div class="bldout">'+(shown.length?shown.map(function(x){return '<kbd>'+x+'</kbd>'}).join('<span class="plus">+</span>')
+      :'<span class="dhint">build the shortcut above</span>')+'</div>'+
+  '</div>';
+}
+function prettyKey(k){
+  var m={up:'↑',down:'↓',left:'←',right:'→',enter:'Enter',space:'Space',tab:'Tab',esc:'Esc',
+    del:'Delete',pgup:'PgUp',pgdn:'PgDn',home:'Home',end:'End'};
+  if(m[k])return m[k];
+  if(/^f[0-9]{1,2}$/.test(k))return k.toUpperCase();
+  return k.length===1?k.toUpperCase():k;
+}
+function builtCombo(cat){
+  var st=PS[cat],parts=[];
+  MODS.forEach(function(m){if(st.mods[m.id])parts.push(m.id)});
+  if(st.key)parts.push(st.key);
+  return sortCombo(parts.join('+'));
+}
+function checkBuilt(cat){
+  var st=PS[cat];
+  var drill=PK[cat].filter(function(i){return i.drill});
+  var it=drill[st.i];
+  if(!st.key){ st.msg='Pick the key as well as the modifiers.'; drawDrill(cat); return; }
+  var got=builtCombo(cat), want=sortCombo(it.c);
+  if(got===want){
+    st.done[st.i]=1; st.wrong=null; st.msg=null; st.hit=true;
+    drawDrill(cat);
+    setTimeout(function(){ st.hit=false; st.mods={}; st.key=''; st.i=nextIdx(cat); drawDrill(cat); },900);
+  } else {
+    st.wrong=got; st.msg=null; drawDrill(cat);
+  }
+}
+/* grid effect on a correct Excel answer */
+var GRIDFX={
+ 'ctrl+d':{cells:[[3,2]],note:'B3 filled down from B2'},
+ 'ctrl+r':{cells:[[2,3]],note:'C2 filled right from B2'},
+ 'alt+=':{cells:[[5,2]],note:'SUM(B2:B4) written into B5'},
+ 'ctrl+space':{col:2,note:'Column B selected'},
+ 'shift+space':{row:2,note:'Row 2 selected'},
+ 'ctrl+down':{cells:[[5,2]],note:'Jumped to the bottom of the data'},
+ 'ctrl+shift+down':{cells:[[2,2],[3,2],[4,2],[5,2]],note:'Selected down to the edge'},
+ 'ctrl+home':{cells:[[1,1]],note:'Back to A1'},
+ 'ctrl+end':{cells:[[5,4]],note:'Last used cell'},
+ 'ctrl+shift+4':{col:2,note:'Column B formatted as currency'},
+ 'ctrl+a':{all:1,note:'Whole data region selected'}
+};
+
+var PS={};  /* per-category drill state */
+function practiceHTML(cat){
+  var items=PK[cat], drill=items.filter(function(i){return i.drill});
+  var ref=items.filter(function(i){return !i.drill});
+  if(!PS[cat])PS[cat]={i:0,done:{},wrong:null,msg:null,hit:false,mods:{},key:''};
+  return '<div class="eyebrow"><span class="pip"></span> Module 3 &middot; '+cat+'</div>'+
+    '<h2 class="hd" style="margin-bottom:6px">'+cat+' Hot Keys</h2>'+
+    '<p style="margin-bottom:18px">'+drill.length+' to practise'+(ref.length?' &middot; '+ref.length+' ribbon sequences below':'')+'</p>'+
+    '<div class="drill" id="drill-'+cat.replace(/ /g,'')+'"></div>'+
+    (ref.length?'<div class="refwrap"><div class="reflbl">Ribbon sequences &mdash; press these keys one after '+
+      'another, not together</div><div class="refgrid">'+ref.map(function(r){
+        return '<div class="hk seq"><div class="keys">'+keyHTML(r.k)+'</div>'+
+               '<div class="d">'+r.d+'</div></div>';
+      }).join('')+'</div></div>':'');
+}
+function drawDrill(cat){
+  var box=document.getElementById('drill-'+cat.replace(/ /g,''));
+  if(!box)return;
+  var drill=PK[cat].filter(function(i){return i.drill});
+  var st=PS[cat];
+  var doneN=Object.keys(st.done).length;
+  if(doneN>=drill.length){
+    box.innerHTML='<div class="dcard done"><div class="dbig">&#10003;</div>'+
+      '<div class="dtask">All '+drill.length+' '+cat+' shortcuts complete.</div>'+
+      '<div class="dactions"><button class="dbtn" data-act="reset">Practise again</button></div></div>';
+  } else {
+    var it=drill[st.i];
+    box.innerHTML=
+      '<div class="dprog"><div class="dbar"><i style="width:'+(doneN/drill.length*100)+'%"></i></div>'+
+        '<span class="dcount">'+doneN+' / '+drill.length+'</span></div>'+
+      '<div class="dcard'+(st.wrong?' bad':'')+(st.hit?' good':'')+'">'+
+        '<span class="dlbl">Build the shortcut for</span>'+
+        '<div class="dtask">'+it.d.replace(/<[^>]+>/g,'')+'</div>'+
+        (st.hit
+          ? '<div class="dslot" style="border-style:solid">'+keyHTML(it.k)+'<span class="ok">&#10003;</span></div>'
+          : builderHTML(cat))+
+        (st.wrong?'<div class="dmsg bad">Not this one &mdash; you built '+prettyCombo(st.wrong)+'</div>':'')+
+        (st.msg?'<div class="dmsg">'+st.msg+'</div>':'')+
+        '<div class="dactions">'+
+          '<button class="dbtn ghost" data-act="show">Show answer</button>'+
+          '<button class="dbtn ghost" data-act="skip">Skip</button>'+
+          '<button class="dbtn ghost" data-act="reset">Reset</button>'+
+        '</div>'+
+      '</div>'+
+      (cat==='Excel'?gridHTML(st.hit?GRIDFX[sortCombo(it.c)]:null):(CTXART[cat]||''));
+  }
+  box.querySelectorAll('.modchip').forEach(function(b){
+    b.addEventListener('click',function(){
+      st.mods[b.dataset.mod]=!st.mods[b.dataset.mod]; st.wrong=null; st.msg=null; drawDrill(cat);
+    });
+  });
+  box.querySelectorAll('.spkey').forEach(function(b){
+    b.addEventListener('click',function(){
+      st.key=(st.key===b.dataset.key)?'':b.dataset.key; st.wrong=null; st.msg=null; drawDrill(cat);
+    });
+  });
+  var inp=box.querySelector('#keyin');
+  if(inp){
+    inp.addEventListener('input',function(){
+      var v=normKey(inp.value); if(v){st.key=v;} else {st.key='';}
+      st.wrong=null; st.msg=null;
+      box.querySelectorAll('.spkey').forEach(function(x){x.classList.remove('on')});
+      var out=box.querySelector('.bldout'); if(out){
+        var shown=[]; MODS.forEach(function(m){if(st.mods[m.id])shown.push(m.lbl)});
+        if(st.key)shown.push(prettyKey(st.key));
+        out.innerHTML=shown.length?shown.map(function(x){return '<kbd>'+x+'</kbd>'}).join('<span class="plus">+</span>')
+          :'<span class="dhint">build the shortcut above</span>';
+      }
+    });
+    inp.addEventListener('keydown',function(e){
+      e.stopPropagation();
+      if(e.key==='Enter'){e.preventDefault();checkBuilt(cat);}
+    });
+  }
+  box.querySelectorAll('.dbtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var a=b.dataset.act;
+      if(a==='check'){checkBuilt(cat);return}
+      if(a==='reset'){PS[cat]={i:0,done:{},wrong:null,msg:null,hit:false,mods:{},key:''};}
+      else if(a==='skip'){st.wrong=null;st.msg=null;st.mods={};st.key='';st.i=nextIdx(cat);}
+      else if(a==='show'){var d=PK[cat].filter(function(i){return i.drill})[st.i];
+        st.msg='It is '+keyHTML(d.k)+'. Build it to move on.'; st.wrong=null;}
       drawDrill(cat);
     });
   });
@@ -1415,10 +1844,9 @@ document.getElementById('menuclose').addEventListener('click',closeMenu);
 menu.addEventListener('click',function(e){if(e.target===menu)closeMenu()});
 
 /* keyboard */
-document.addEventListener('keydown',drillKey,true);
 document.addEventListener('keydown',function(e){
   if(e.target.tagName==='INPUT')return;
-  if(S[cur]&&S[cur].practice)return;
+  if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;
   if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();next()}
   if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();back()}
   if(e.key==='Escape')closeMenu();
